@@ -1,0 +1,174 @@
+<div class="margin-top-15" ng-controller="roleCtrl">
+    <div class="title-tip-layout title-tip-color left-right margin-top-20"
+         ng-class="serverfil.conData.length>0 ? 'show':'hide'">
+        <p class="text-p">
+            <label class="tip-label">服务器 <i class="fa fa-hand-o-right"></i></label>
+            <span ng-repeat="sen in serverfil.conData">{{sen.name}}</span>
+        </p>
+    </div>
+    <div class="form-inline form-div title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <a href="" class="f-r tab-icon" data-toggle="tooltip" data-placement="left"
+               title="{{setOverallTitle}}">
+                <span class="fa fa-info-circle"></span>
+            </a>
+        </div>
+        <div class="form-group margin-bottom-20">
+            <label class="red-star">&nbsp;</label> 服务器：
+            <filtrate-btn filparms="serverfil" nametip="nametip">
+                <filtrate-pane>
+                    <server-popup popuparg="singleserverarg"></server-popup>
+                </filtrate-pane>
+            </filtrate-btn>
+        </div>
+        <div class="form-group margin-bottom-20">
+            <label class="red-star">&nbsp;</label>角色名称：
+            <input type="text" class="form-control border width-200" placeholder="请输入角色名称">
+        </div>
+        <button type="button" class="btn purple-btn margin-bottom-12 margin-left-19">
+            <i class="fa fa-search"></i> 查询
+        </button>
+    </div>
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs tabdivresize="resettable()">
+            <my-pane title-name="角色信息">
+                <div ng-controller="roleTableCtrl as showCase">
+                    <label class="position-re sign-position">基本信息</label>
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           style="min-width: 1384px;"
+                           class="table-striped dataTable
+                                   table-bordered padding-15"></table>
+                </div>
+                <div class="m-t-32" ng-controller="roleParterTableCtrl as showCase">
+                    <label class="position-re sign-position" style="top: 60px;">伙伴信息
+                        <span class="color-red">（点击每行加号按钮可查看更多信息）</span></label>
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable armyhover
+                                   table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="背包信息">
+                <div class="white-tabs">
+                <my-tabs>
+                    <my-pane title-name="宝石信息">
+                        <div ng-controller="gemTableTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable
+                                           table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="道具信息">
+                        <div ng-controller="sceneTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="装备信息">
+                        <div ng-controller="equipTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="宝物信息">
+                        <div ng-controller="treasureTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="饰品信息">
+                        <div ng-controller="ornamentTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="卡带信息">
+                        <div ng-controller="cassetteTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                    <my-pane title-name="宠物信息">
+                        <div ng-controller="petTableCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance"
+                                   class="table-striped dataTable table-bordered padding-15"></table>
+                        </div>
+                    </my-pane>
+                </my-tabs>
+    </div>
+
+            </my-pane>
+            <my-pane title-name="邮件查看">
+                <div ng-controller="mailTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="福利信息">
+                <div ng-controller="welfareTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="福利领取记录">
+                <div ng-controller="getWelfareTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+        </my-tabs>
+    </div>
+
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <form class="form-inline form-div" novalidate>
+                <div class="form-group width-pencent-100">
+                    发送者:
+                    <span class="query-span content-span">
+                        小蘑菇
+                    </span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    邮件标题:
+                    <span class="query-span content-span">
+                       卖女孩的小火柴
+                    </span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    邮件内容:
+                    <span class="query-span content-span">
+                        $C15Dear 继承者们$C11：$N 充值$C167.5折$C11的活动就剩两天啦！
+                        （准确的说，仅剩一天零一晚）。小超温馨提示您，这是不删档内测版正式上线的特殊福利，机
+                        会难得，千万不要错过哟！$N (￣y▽￣)折扣福利不限充值次数，超级划算！将额外返还充值金额25%的绑定钻石给大家。
+                    </span>
+                </div>
+                <div class="form-group">
+                    是否已阅读 ：
+                    <span class="query-span">是</span>
+                </div>
+                <div class="form-group margin-left-35">
+                    是否有奖励可以领取 ：
+                    <span class="query-span">否</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    附件 :
+                    <span class="query-span content-span">
+                        []
+                    </span>
+                </div>
+            </form>
+        </modal-pane>
+    </modal-dialog>
+</div>

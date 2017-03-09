@@ -1,0 +1,23 @@
+{
+  "name": "angularjstest",
+  "version": "0.0.1",
+  "description": "测试",
+  "main": "index.js",
+  "dependencies": {
+    "fis-parser-less": "*",
+    "fis-preprocessor-annotate": "*",
+    "fis3-hook-module": "^1.2.2",
+    "fis3-hook-relative": "^1.0.3",
+    "fis3-postpackager-loader": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://192.168.1.196/ued/angularJsTest.git"
+  },
+  "author": "zxx",
+  "license": "MIT"
+}

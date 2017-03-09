@@ -1,0 +1,66 @@
+.padding-top-8 {
+    padding-top: 8px;
+}
+.choose-content {
+    width: 640px;
+    margin-top: 16px;
+    left: auto;
+}
+.form-fil-xsm input {
+    height: 25px;
+    width: 180px !important;
+    background-color: transparent !important;
+}
+.form-fil-xsm input + i {
+    left: 160px !important;
+}
+.popup-up > span > input:checked + label, .pop-input-group input:checked + label, .plt-input-group input:checked + label {
+    background-color: #a2a2e3;
+    color: #fff;
+}
+.choose-content {
+    background-color: #c9c9e4;
+}
+.btn-gray {
+    background-color: #c5c5c5;
+    color: #fff;
+}
+.filform > .pupp-border-bg {
+    background-color: #e5e7f3;
+    border: 1px solid #B6BDC3;
+    border-radius: 4px;
+    margin: 0 10px 2px 10px;
+    padding: 10px;
+}
+.pop-input-group{
+    margin-top: 5px;
+}
+.filform > .pupp-border-bg label{
+    padding: 3px;
+    color: #5A5C8B;
+    cursor: pointer;
+}
+ .pop-server{
+    left: -25px;
+}
+ .pop-server .arrow-up{
+    left: 174px;
+}
+ .pop-agent{
+    left: -258px;
+}
+ .pop-agent .arrow-up{
+    left: 392px;
+}
+ .pop-platform{
+    left: -480px;
+}
+.pop-platform .arrow-up{
+    left: 615px;
+}
+.group-agent .pop-agent{
+    left: -310px;
+}
+.group-agent .pop-agent .arrow-up{
+    left: 445px;
+}

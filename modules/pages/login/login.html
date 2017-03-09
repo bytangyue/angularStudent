@@ -1,0 +1,49 @@
+<link rel="stylesheet" type="text/css" href="login.css?__inline">
+<div class="container-fluid" ng-style="{'height':windowHeight}" id="loginAll" ng-keyup="enterLogin($event)" ng-controller="loginContrl">
+
+    <div class="computer" id="computer">
+        <div class="com-top">
+            <h1>简乐办公系统</h1>
+        </div>
+        <div class="form-div">
+            <form name="form" class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label"><img class="user"
+                                                                                 src="img/user.png?__inline"
+                                                                                 alt=""/></label>
+
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEmail3" placeholder="请输入用户名"
+                               ng-model="user.name" name="uName" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-2 control-label"><img class="key"
+                                                                                    src="img/key.png?__inline"
+                                                                                    alt=""/></label>
+
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" placeholder="请输入密码"
+                               ng-model="user.pwd" name="uPwd" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2">&nbsp;</label>
+                    <div class="col-sm-10">
+                        <button type="button" class="btn login"
+                                ng-click="queryUser(user)" ng-disabled="form.$invalid">登录
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <div class="copyright">
+        <p>Copyright © 2015 简乐互动科技有限公司 版权所有</p>
+    </div>
+
+</div>
+</body>
+</html>

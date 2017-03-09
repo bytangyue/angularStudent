@@ -1,0 +1,434 @@
+/**
+* 颜色样式
+**/
+body{
+    color: #1e1e29;
+    background-color: #7575ac;
+}
+.blue-color {
+    color:#4EA8D3;
+}
+.red-star {
+    color:#D66160;
+    font-size: 20px;
+}
+.color-red-2{
+    color:#D66160;
+}
+.red-notice{
+    color:#C35762;
+}
+.color-yellow{
+    color:#cccc99;
+    font-weight: 500;
+}
+a:hover, a:focus, .btn:hover{
+    color: #fff;
+}
+.btn:focus{
+    color: #8181c1;
+}
+.head *,.index-sidebar-list *, .footer, .dashboard-icon{
+    color: #cccc99;
+    font-size: 14px;
+}
+.border {
+    border: 1px solid #A8ACB4;
+}
+.no-border {
+    border: none!important;
+}
+a{
+    color: #fff;
+}
+.white-div .dataTables_filter input{
+    background-color: #F3F4F6!important;
+    color: #1e1e29!important;
+}
+.head {
+    background-color: #5e5e99;
+}
+.head-left{
+    color: #FFFFFF !important;
+}
+.back-white {
+background-color: #F3F4F6!important;
+color: #5A5C8B!important;
+}
+.head .h-mw .icon {
+background-color: #9696fe;
+}
+.h-mw .icon span {
+color: #cccc99;
+font-size: 22px;
+}
+
+.h-right a:hover {
+color: #ffffff;
+}
+.dashboard {
+background-color: #54548b;
+}
+.index-sidebar-list > li > a:hover,.index-sidebar-list .sidebar-active{
+color: #fff;
+background-color: #6c6ca3;
+}
+.h-right > ul > li:hover{
+background-color:#535380;
+}
+.sidebar-active *,.index-sidebar-list > li > a:hover *,.h-right > ul > li:hover *{
+color: #fff;
+}
+.main-sidebar {
+background-color:#5e5e99;
+}
+.chunk-head>label {
+color:#cccc99;
+}
+.title-tip-color {
+background-color: #8b8bba;
+}
+.panel-color {
+background-color: #66669d;
+}
+.title-tip-color, .panel-color{
+border: 1px solid #9999cc;
+}
+.footer {
+background:#5c5c97;
+color: #ffffff;
+}
+
+.dashboardRight {
+background-color: #5c5c97;
+color: #cccc99;
+}
+/*------------------------------------------分页-------------------------------------------------------------*/
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination >
+.active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus, .pagination > .disabled > a,
+.pagination > li > a:hover{
+    color: #fff;
+    background-color: #8181c1;
+    border-color: #8181c1;
+}
+.pagination > li > a{
+    color: #9999cc;
+    background-color: #fff;
+    border-color: #b0b0e7;
+}
+.pagination > .disabled > a,.pagination > .disabled > a:hover{
+    color: #c1c1c4;
+    background-color: #ececec;
+    border-color: #c1c1c4;
+}
+.dataTables_length .form-control {
+   /* background-color: transparent;*/
+    background-color:#eaebfe;
+}
+/*------------------------------------------分页-------------------------------------------------------------*/
+/*------------------------------------------表格tip标记---------------------------------------------------------*/
+.table-bordered tr th {
+    color: #000;
+}
+.table-bordered tr td {
+    color: #555556;
+}
+.table-bordered > tbody > tr:nth-of-type(odd),table.dataTable tbody tr:nth-of-type(odd).selected {
+    /*偶数行*/
+    background-color:#eaebfe;
+}
+.table-bordered > tbody > tr:nth-of-type(even), .table-bordered > thead > tr, .pagination-nav
+,table.dataTable tbody tr:nth-of-type(even).selected{
+    /*奇数行*/
+    background-color:#dadaff;
+}
+.table-bordered,.table-bordered>tbody>tr>td,.table-bordered>thead>tr>th{
+    border: none;
+}
+table.dataTable.no-footer,table.dataTable thead th,.dataTables_wrapper.no-footer .dataTables_scrollBody {
+    border-bottom: none;
+}
+table.dataTable tbody td,table.dataTable thead th {
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #fff;
+}
+table.dataTable th:first-child, table.dataTable td:first-child{
+    border-left: 1px solid #fff;
+}
+table.dataTable thead th{
+    border-top: 1px solid #fff;
+}
+/*--------表格panel标记------------*/
+.tab-pane, .tip-sign-active{
+    border: 1px solid #a7abb1;
+    background-color: #eeeeff;
+}
+.tip-nav > :not(.tip-sign-active):hover {
+    background-color: #E2E4EB;
+}
+.tip-nav{
+    color: #000;
+}
+.tip-nav a{
+    color:#4EA8D3;
+    text-decoration: none;
+}
+.tip-nav a:active{
+    color:#4EA8D3;
+}
+.tip-nav a:hover{
+    color:#4EA8D3;
+}
+.tip-sign {
+    border: 1px solid #a7abb1;
+    border-radius: 6px 6px 0px 0px;
+    margin-left: 4px;
+}
+.tip-sign:last-child {
+    border-right: 1px solid #a7abb1;
+}
+.tip-sign-active {
+    border-bottom-color: transparent;
+}
+.tip-nav > :not(.tip-sign-active) {
+    background-color: #F6F6F6;
+    color: #000000;
+}
+/*紫色tabs*/
+.purple-tabs .tip-nav a{
+    color:#FFFFFF;
+    text-decoration: none;
+}
+.purple-tabs .tip-nav a:active{
+    color:#FFFFFF;
+}
+.purple-tabs .tip-nav a:hover{
+    color:#FFFFFF;
+}
+
+.purple-tabs .tip-sign {
+    border-color: #9999cc;
+}
+.purple-tabs .tip-sign:last-child {
+    border-right-color: #9999cc;
+}
+.purple-tabs .tab-pane,.purple-tabs .tip-sign-active{
+    border-color: #9999cc;
+    background-color: #66669d;
+}
+.purple-tabs .tip-sign-active {
+    border-bottom-color: transparent;
+}
+.purple-tabs .tip-nav > :not(.tip-sign-active):hover {
+    background-color: #7171b3;
+}
+.purple-tabs .tip-nav > :not(.tip-sign-active){
+    background-color: #8181c1;
+    color: #cccc99;
+}
+
+
+/*白色tabs*/
+.white-tabs .tip-nav a{
+    color:#8181C1;
+    text-decoration: none;
+}
+.white-tabs .tip-nav a:active{
+    color:#8181C1;
+}
+.white-tabs .tip-nav a:hover{
+    color:#8181C1;
+}
+.white-tabs .tip-sign {
+    border:1px solid #CCC;
+}
+
+.white-tabs .tab-pane,.white-tabs .tip-sign-active{
+    border: 1px solid #a7abb1;
+    background-color:#F7F7FF;
+}
+.white-tabs .tip-sign-active {
+    border-bottom-color: transparent;
+}
+.white-tabs .tip-nav > :not(.tip-sign-active):hover {
+    background-color: #FFFFFF;
+}
+.white-tabs .tip-nav > :not(.tip-sign-active){
+    background-color:#eceef3;
+    color: #000;
+}
+/*--------表格panel标记------------*/
+
+.tab-icon,.icon-btn-default {
+    background-color: #e5e7f3;
+}
+.tab-icon span {
+    color: #66669B;
+}
+.icon-active {
+    background-color: #048a6e!important;
+}
+
+.icon-active span{
+    color: #fff!important;
+}
+.icon-btn-default span ,.title-tip-color span, .title-tip-color label{
+    color: #fff;
+}
+.title-tip-color i{
+    color: #FFFFFF;
+}
+/*------------------------------------------表格tip标记---------------------------------------------------------*/
+.dataTables_wrapper .dataTables_filter input {
+    background-color:#8181c1;
+    color: #FFFFFF;
+}
+/*向上箭头，类似A，只有三个边，不能指定上边框*/
+.arrow-up {
+    position: relative;
+    top: -20px;
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid #c9c9e4;
+    /*以下属性可以是IE5兼容*/
+    font-size: 0px;
+    line-height: 0px;
+}
+.btn-file-color {
+    color: #fff;
+    background-color: #e6e6e6;
+}
+/*datatable start*/
+.purple-btn:focus,.purple-btn:hover,.tab-icon:hover,
+.my-input-group input[type="radio"]:checked+label,
+.my-input-group input[type="checkbox"]:checked+label{
+    background-color: #8181c1;
+    color: #fff;
+}
+.purple-btn-table:hover{
+    background-color:#6A6A9E;
+    color: #fff;
+}
+.purple-btn-table{
+    background-color:#8B8BCE;
+    color: #fff;
+}
+.purple-btn {
+    background-color:#a2a2e3;
+    color: #fff;
+}
+.tab-icon:hover *{
+    color: #FFFFFF !important;
+}
+table.armyhover tbody tr:hover{
+    background-color: #bdbde9;
+}
+table.hover-pointer tbody tr.selected{
+     background-color: #bdbde9!important;
+ }
+.hover-pointer tr{
+    cursor: pointer;
+}
+/*datatable end*/
+
+/*修改select2样式 start*/
+.select2-container .select2-choice{
+    border: none;
+    height: 32px;
+    line-height: 32px;
+}
+.select2-container .select2-choice, .select2-container .select2-choice .select2-arrow {
+    background: #8181c1;
+    -webkit-box-shadow:none;
+}
+.white-select2 .select2-choice {
+    border: 1px solid #aaa;
+}
+.white-select2 .select2-choice,.white-select2 .select2-choice .select2-arrow {
+    background: #F3F4F6!important;
+}
+.hide-select2-close .select2-search-choice-close{
+    display: none!important;/*隐藏关闭操作*/
+}
+.white-select2.select2-allowclear .select2-choice abbr{
+    background: url('../images/select2-1.png') right top no-repeat!important;
+}
+.white-select2 .select2-choice .select2-arrow b {
+    background: url('../images/select2-1.png') no-repeat 7px 2px!important;
+}
+.white-select2 *{
+    color: #5A5C8B!important;
+}
+.select2-container .select2-choice > .select2-chosen {
+    color: #ffffff;
+}
+.select2-results .select2-highlighted {
+    background:#a2a2e3;
+}
+/*修改select2样式 end*/
+
+.btnPopup-head{
+    color:#fff;
+    background-color: #8b8bba;
+}
+.btn-yellow{
+    background-color:#EC6A82;
+    border-color:#EC6A82;
+    color: #FFFFFF;
+}
+.btn-yellow:hover,.btn-yellow:focus,.one-dele-active{
+    background-color:#CA475F!important;
+    border-color:#CA475F!important;
+}
+.one-copy-active {
+    background-color:#6A6A9E!important;
+}
+.query-span {
+    color: #95C9E0;
+}
+.btn-padding{
+    padding: 5px 12px;
+}
+/*聊天监控文字样式 */
+.box-radius{
+    border: 1px solid #9999cc;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+.box-radius a:hover{ cursor: pointer; margin-left: 2px;}
+.color-txt-white{
+    color: #ffffff;
+}
+.color-txt-green{
+    color:#91D079;
+}
+.color-txt-yellow{
+    color: #c0c06a;
+}
+.color-txt-red{
+    color:#D68896;
+}
+.size-txt-16{
+    font-size: 16px;
+}
+/*火狐等浏览器下输入框默认颜色*/
+.form-control:-moz-placeholder{color:#A8ACB4}
+.form-control::-moz-placeholder{color:#A8ACB4;opacity:1}
+.form-control:-ms-input-placeholder{color:#A8ACB4}
+.form-control::-webkit-input-placeholder{color:#A8ACB4}
+/*表格中可展开按钮颜色*/
+table.dataTable.dtr-inline.collapsed tbody td:first-child:before,
+table.dataTable.dtr-inline.collapsed tbody th:first-child:before{
+    background-color:#95C9E0 !important;
+}
+.color-purple{
+    color: #8181c1;
+}
+.color-lightgray{
+    color: #999999;
+}

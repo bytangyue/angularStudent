@@ -1,0 +1,56 @@
+<div class="margin-top-15" ng-controller="accountCtrl">
+    <!--服务器 start-->
+    <link rel="import" href="../../partial/server/server.html?__inline"/>
+    <!--服务器 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>账号信息</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                    <div class="chunk-btn-left f-l">
+                        <btn-popup btnquery="queryaccount()"
+                                   popparms="querypop">
+                            <popup-pane>
+                                <form class="form-inline form-div" novalidate>
+                                    <div class="form-group my-article myradio margin-left-14">
+                                        <div class="form-group margin-left-19">
+                                            <input type="radio" ng-checked="true" ng-model="sendgroup" value="role" id="role"/><label
+                                                for="role" class="marticle"></label>
+                                            &nbsp;&nbsp;按角色名称
+                                        </div>
+                                        <div class="form-group margin-left-55">
+                                            <input type="radio" ng-model="sendgroup" value="rolekey" id="rolekey"/><label
+                                                for="rolekey" class="marticle"></label>
+                                            &nbsp;&nbsp;按角色主键
+                                        </div>
+                                        <div class="form-group margin-left-55">
+                                            <input type="radio" ng-model="sendgroup" value="accountkey" id="accountkey"/><label
+                                                for="accountkey" class="marticle"></label>
+                                            &nbsp;&nbsp;按账号主键
+                                        </div>
+                                        <br/>
+                                        <div class="form-group margin-top-12">
+                                            <label class="red-star">*</label>&nbsp;<input type="text" class="form-control border back-white width-550"
+                                               placeholder="请输入角色名称/角色主键/账号主键" required>
+                                            </div>
+                                    </div>
+                                </form>
+
+                            </popup-pane>
+                        </btn-popup>
+                    </div>
+                <div class="clear"></div>
+                <div ng-controller="accounttableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15 min-width-1632"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()"></modal-dialog>
+</div>

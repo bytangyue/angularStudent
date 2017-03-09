@@ -1,0 +1,289 @@
+<div class="margin-top-15" ng-controller="activityCtrl">
+    <!--服务器、渠道、平台 start-->
+    <link rel="import" href="../../partial/severAgentPltform/severAgentPltform.html?__inline"/>
+    <!--服务器、渠道、平台 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>精彩活动列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checkactivityTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checkactivityTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="queryactivity()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>活动名称：
+                                    <input type="text" class="form-control border back-white width-508"
+                                           placeholder="请输入活动名称（此项为非必填项）">
+                                </div>
+
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right f-r">
+                    <btn-popup btnquery="addactivity()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form my-article hide-select2-close" novalidate>
+                                <div class="form-group" ng-init="addActivity.type='1'">
+                                    <label class="red-star">*</label>活动类型：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="addActivity.type" data-placeholder="请选择活动类型" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="1">激活码类</option>
+                                        <option value="2">一般类型</option>
+                                        <option value="3">开服活动</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    图标ID：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="addActivity.icon" data-placeholder="1" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="_easyui_combobox_i1_1">1</option>
+                                        <option value="_easyui_combobox_i1_2">2</option>
+                                        <option value="_easyui_combobox_i1_3">3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    背景图ID：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="addActivity.bg" data-placeholder="1" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="_easyui_combobox_i1_1">1</option>
+                                        <option value="_easyui_combobox_i1_2">2</option>
+                                        <option value="_easyui_combobox_i1_3">3</option>
+                                    </select>
+                                </div>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>活动名称：
+                                    <input type="text" ng-model="addActivity.name" class="form-control border back-white width-600"
+                                           placeholder="请输入活动名称">
+                                </div>
+                                <br/>
+
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>拟小标题：
+                                    <input type="text" ng-model="addActivity.smallname" class="form-control border back-white width-600"
+                                           placeholder="请输入小标题">
+                                </div>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>排序ID号：
+                                    <input type="text" ng-model="addActivity.sort" class="form-control border back-white width-600"
+                                           placeholder="请输入排序ID">
+                                </div>
+                                <div class="form-group white-plugin">
+                                    <span class="f-l"> <label class="red-star">*</label>活动时间:&nbsp;</span>
+                                    <date-button datename="adddate" single-date="false"
+                                                 class="f-r text-top-align margin-left-10" required></date-button>
+                                </div>
+                                <div class="form-group margin-left-7 mycheckbox">
+                                    特殊链接：
+                                    <input type="checkbox" ng-model="specialM" value="special" id="seid"/>
+                                    <label for="seid" class="marticle pre-top margin-right10"></label>
+                                    <input type="text" class="form-control border back-white width-200"
+                                           placeholder="请输入链接地址">
+                                </div>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>活动内容:
+                                    <textarea class="textarea back-white width-600 margin-left-10 text-top-align"
+                                              rows="5"></textarea>
+                                </div>
+                                <div class="form-group my-article myradio">
+                                    <label class="red-star">&nbsp;</label> 玩家分组：
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" ng-checked="true" value="all"
+                                               id="all"/>
+                                        <label for="all" class="marticle"></label>
+                                        &nbsp;&nbsp;所有
+                                    </div>
+                                    <div class="form-group margin-left-14 white-select2">
+                                        <input type="radio" ng-model="sendgroup" value="camp" id="camp"/>
+                                        <label for="camp" class="marticle"></label>
+                                        &nbsp;&nbsp;按阵营
+                                        <select ng-init="notice.fast='0'" ui-select2="{ allowClear: true}"
+                                                class="choose-chanel isshowEle"
+                                                ng-model="notice.fast" data-placeholder="1" ng-required="true">
+                                            <option value="0">雷霆</option>
+                                            <option value="1">圣火</option>
+                                            <option value="2">暴风</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" value="army" id="army"/><label
+                                            for="army" class="marticle"></label>
+                                        &nbsp;&nbsp;按军团
+                                        <input type="text" class="form-control back-white border width-200 isshowEle"
+                                               placeholder="请输入军团名称">
+                                    </div>
+                                </div>
+                                <div class="form-group margin-left-19 mycheckbox">
+                                    重复开启：
+                                    <input type="checkbox" ng-model="repeatOpenM" value="repeatOpen" id="roid"/>
+                                    <label for="roid" class="marticle pre-top p-r-25"></label>
+                                    <input type="text" class="form-control border back-white width-80"
+                                           placeholder="次数"> 次
+                                    <input type="text" class="form-control border back-white width-80"
+                                           placeholder="间隔天数">（间隔）天
+                                </div>
+                                <div class="form-group margin-left-5"><a class="addset" href="#" ng-click="levelSet()"> + 档次设置</a></div>
+                                <div class="padding-right-18" ng-controller="levelSetTableCtrl as showCase">
+                                    <label class="position-re sign-position">档次列表</label>
+                                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                           dt-instance="showCase.dtInstance"
+                                           class="table-striped  armyhover dataTable table-bordered padding-15"></table>
+                                </div>
+                                <div ng-if="isshowawardtable" class="padding-right-18" ng-controller="awardTableCtrl as showCase">
+                                    <label class="position-re sign-position">奖励列表</label>
+                                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                           dt-instance="showCase.dtInstance"
+                                           class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" class="btn btn-yellow margin-right-20" ng-click="deleteSelected()">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="activityTableCtrl as showCase">
+                    <table id="inANTable" datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1313px;"
+                           class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <div ng-if="isQuery" class="form-inline form-div">
+                <div class="form-group width-pencent-100">
+                   目标服务器：<span class="query-span">超能T1服超能T1服超能T1</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                   目标渠道：<span class="query-span">简乐官网</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                   目标平台：<span class="query-span">IOS</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    活动名称：<span  class="query-span">【英雄碎片—4】</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    活动内容:<span class="query-span content-span">【英雄碎片】等级登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆就送哟！就送哟！</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    小标题：<span  class="query-span">登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆就送哟！</span>
+                </div>
+                <div class="form-group">
+                    开始时间：<span class="query-span">2015-11-24 22:22:22</span>
+                </div>
+                <div class="form-group margin-left-35">
+                    结束时间：<span class="query-span">2015-12-01 22:22:22</span>
+                </div>
+            </div>
+                <form ng-if="isLevelSet" class="form-inline form-div my-article hide-select2-close" novalidate>
+                    <div class="form-group margin-left-7 mycheckbox">
+                        是否显示领取按钮：
+                        <input type="checkbox" ng-model="drawM" value="draw" id="drawid"/>
+                        <label for="drawid" class="marticle pre-top margin-right10 gray"></label>
+                    </div>
+                    <div ng-if="levelsetdata.length>0" class="form-group width-pencent-100 margin-left-25">
+                        <label class="red-star">*</label>规则：
+                        <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                ng-model="ruleModal" ng-required="true" data-placeholder="请选择活动规则">
+                            <option value=""></option>
+                            <option ng-repeat="rule in levelsetdata" value="{{rule.id}}">
+                                {{rule.text}}
+                            </option>
+                        </select> <i class="fa fa-arrow-right color-red-2"></i>
+                        <input type="text" class="form-control border back-white width-80"
+                               placeholder="输入数字">
+                    </div>
+                    <div ng-if="levelsetdata.length<=0" class="form-group margin-left-35">
+                        <label class="red-star">*</label>激活码批次：
+                        <input type="text" class="form-control border back-white width-80"
+                               placeholder="输入数字">
+                    </div>
+                    <div class="form-group width-pencent-100">
+                        <label class="red-star">*</label>档次说明:
+                                    <textarea class="textarea back-white width-455 margin-left-5 text-top-align"
+                                              rows="5"></textarea>
+                    </div>
+            </form>
+            <div ng-if="isaddraward">
+                <div class="my-article form-group margin-left-10 hide-select2-close">
+                    <div class="mycheckbox">
+                        <span class="query-span">【温馨提示：下面的复选框全部勾选的话会同时添加2条奖励数据哦！】<br/>tips(数量): 装备、卡带、饰品、宠物、宝物均不可叠加，其他类型可以！</span>
+                        <div class="bom-10">
+                            <input type="checkbox" ng-model="equip" ng-checked="true" value="equip" id="equip"/>
+                            <label for="equip" class="marticle d-p gray"></label>
+                            <span class="d-p">&nbsp;装备物品：</span>
+                            <div class="isshowEle form-inline margin-top-12">
+                                <div class="form-group" ng-init="equipm.material='0'">
+                                    <label class="red-star"></label>&nbsp; 物品类
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="equipm.material" data-placeholder="军团材料" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="0">军团材料</option>
+                                        <option value="1">圣火</option>
+                                        <option value="2">下拉内容有点多</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="red-star"> *</label> 数量
+                                    <input type="text" ng-model="equipm.num" class="form-control back-white border width-80" placeholder="填写数量">
+                                </div>
+                                <div class="form-group width-pencent-100 margin-top-8" ng-init="equipm.goodsname='0'">
+                                    <label class="red-star"></label>物品名称
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="equipm.goodsname" data-placeholder="请选择物品名称" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="0">魔鬼无芯花(370026)</option>
+                                        <option value="1">圣火(370026)</option>
+                                        <option value="2">还有很多下拉内容ggg</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="bom-10">
+                            <input type="checkbox" ng-model="currency" value="currency" id="currency"/>
+                            <label for="currency" class="marticle d-p gray"></label>
+                            <span class="d-p">&nbsp;广义货币：</span>
+                            <div class="isshowEle modal-show form-inline margin-top-12">
+                                <div class="form-group" ng-init="currencym.currencytype='0'">
+                                    <label class="red-star"></label> 货币类
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="currencym.currencytype" data-placeholder="钻石" ng-required="true">
+                                        <option value=""></option>
+                                        <option value="0">钻石</option>
+                                        <option value="1">圣火</option>
+                                        <option value="2">下拉内容有点多</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="red-star">*</label> 数量
+                                    <input type="text" ng-model="currencym.num" class="form-control back-white border width-80" placeholder="填写数量">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </modal-pane>
+    </modal-dialog>
+</div>

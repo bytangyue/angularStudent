@@ -1,0 +1,34 @@
+<div ng-click="toggleSidebar()" class="dashboard">
+    <a href="#">
+        <i class="glyphicon glyphicon-transfer f-r dashboard-icon"></i>
+    </a>
+</div>
+<div id="panel-div">
+    <ul class="panel-group index-sidebar-list" style="margin-top: 0px;" id="accordion" role="tablist" aria-multiselectable="true">
+        <li class="panel" ng-repeat="data in dataList">
+            <a role="tab"  ui-sref="{{data.url}}"
+               onclick="utils.setNavigationColor(this,'.index-sidebar-list li a')" ng-class="$index==0 ? 'sidebar-active':''">
+                <i data-toggle="tooltip" data-placement="right" title="{{data.title}}" class='{{data.iconClass}}'></i>
+                <span class="m-10" ng-bind="data.title"></span>
+            </a>
+        </li>
+
+    </ul>
+    <!--<ul class="panel-group index-sidebar-list" style="margin-top: 12px;" id="accordion" role="tablist" aria-multiselectable="true">-->
+    <!--<li class="panel" ng-repeat="data in dataList" >-->
+    <!--<a role="tab" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$index}}" >-->
+    <!--<i data-toggle="tooltip" title="{{data.title}}" class='{{data.iconClass}} sidebar-icon-color'></i>-->
+    <!--<span class="m-10">{{data.title}}</span>-->
+    <!--<i class="aorIcon">+</i>-->
+    <!--</a>-->
+    <!--<ul class="panel-collapse collapse index-sidebar-body" ng-class="{'in init-focused': $index==0}" role="tabpanel" id="collapse{{$index}}">-->
+    <!--<li ng-repeat="nename in data.nestedName">-->
+    <!--<a ui-sref="{{nename.url}}" onclick="utils.setNavigationColor(this,'.index-sidebar-body li a')">-->
+    <!--<i data-toggle="tooltip" data-trigger="hover" title="{{nename.name}}" class="{{nename.neIconClass}} sidebar-icon-color"></i>-->
+    <!--<span class="m-10">{{nename.name}}</span></a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</li>-->
+
+    <!--</ul>-->
+</div>

@@ -1,0 +1,38 @@
+<!-------------------------------------------附件/网址按钮start------------------------------>
+<div class="form-group my-input-group width-pencent-100">
+    <span class="f-l"><label class="red-star">&nbsp;</label>附件/网址：</span>
+    <input type="checkbox" class="hide" ng-model="acc" ng-checked="accechecked" value="acc" id="acc" ng-click="addAcce()"/>
+    <label for="acc" class="purple-btn label-0 height-34">添加附件</label>
+    <input type="checkbox" class="hide" ng-model="webaddress" ng-checked="webaddresschecked" value="webaddress" id="webaddress"  ng-click="addwebAddress()"/>
+    <label for="webaddress" class="purple-btn label-1 height-34">添加网址</label>
+</div>
+<!-------------------------------------------附件/网址按钮end------------------------------>
+<!-------------------------------------------添加附件start------------------------------>
+<div ng-show="accechecked">
+    <div class="my-inline-group">
+        <label class="red-star">&nbsp;</label> 添加附件：
+    </div>
+    <link rel="import" href="accessory.html?__inline"/>
+    <br/>
+    <button type="button" ng-class="saveacce.showacce?'':'hide'" class="btn purple-btn save-acce">
+        保存附件
+    </button>
+</div>
+<!--------------------------------------添加附件end------------------------------------>
+<!--------------------------------------添加网址start------------------------------------>
+<div ng-show="webaddresschecked" class="form-group margin-left-25 margin-bottom-20">
+    <div class="margin-left-f19">
+    <label class="red-star">&nbsp;</label>添加网址：
+    <span class="color-purple">【温馨提示：网址格式：类型（数字代码，0为一般），显示名称，地址。】</span>  </div>
+    <div class="margin-bottom-20 margin-top-8">
+        &nbsp;网址一：<input type="text" class="form-control no-bg-color width-200" placeholder="请输入类型">
+        <input type="text" class="form-control no-bg-color width-200" placeholder="请输入名称">
+        <input type="text" class="form-control no-bg-color width-200" placeholder="请输入地址">
+    </div>
+    <div>
+        &nbsp;网址二：<input type="text" class="form-control no-bg-color width-200" placeholder="请输入类型">
+        <input type="text" class="form-control no-bg-color width-200" placeholder="请输入名称">
+        <input type="text" class="form-control no-bg-color width-200" placeholder="请输入地址">
+    </div>
+</div>
+<!--------------------------------------添加网址end------------------------------------>

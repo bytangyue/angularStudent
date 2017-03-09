@@ -1,0 +1,127 @@
+<div class="margin-top-15" ng-controller="newsNoticeCtrl">
+    <!--服务器、渠道、平台 start-->
+    <link rel="import" href="../../partial/severAgentPltform/severAgentPltform.html?__inline"/>
+    <!--服务器、渠道、平台 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>新闻公告列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checknewTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checknewTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="querynotice()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>公告名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入公告名称（此项为非必填项）">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right f-r">
+                    <btn-popup btnquery="addnotice()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>公告名称：
+                                    <input type="text" class="form-control border back-white width-600" placeholder="请输入公告名称">
+                                </div>
+                                <br/>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>公告内容:
+                                    <textarea class="textarea back-white width-600 margin-left-7 text-top-align" rows="5"></textarea>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="red-star">*</label>优先级：
+                                    <input type="text" class="form-control border back-white width-200 margin-left-14" placeholder="请输入数字">
+                                </div>
+                                <div class="form-group margin-left-35 white-plugin">
+                                    <span class="f-l"> <label class="red-star">&nbsp;</label>公告时间:</span>
+                                    <date-button datename="adddate" single-date="false" class="f-r text-top-align" required></date-button>
+                                </div>
+                                <br/>
+                                <div class="form-group ">
+                                    <label class="red-star">&nbsp;</label>新闻链接：
+                                    <input type="text" class="form-control border back-white width-200" placeholder="请输入网址">
+                                    <span class="margin-left-19"><input type="checkbox">&nbsp;特殊链接</span>
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" ng-click="deleteSelected()" class="btn btn-yellow height-34 margin-right-20">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="newsNoticeTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1700px;"
+                           class="table-striped dataTable armyhover table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <form class="form-inline form-div" novalidate>
+                <div class="form-group width-pencent-100">
+                    <label class="red-star" ng-if="isCopy">*</label>目标服务器：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455" placeholder="请将输入的服务器名以英文,隔开">
+                    <span ng-if="!isCopy" class="query-span">超能T1服</span>
+                </div>
+                <br/>
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-if="isCopy">&nbsp;</label>目标渠道：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455" placeholder="请将输入的渠道名以英文,隔开">
+                    <span ng-if="!isCopy"class="query-span">全渠道</span>
+                </div>
+                <br/>
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-if="isCopy">*</label>公告名称：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455" placeholder="请输入公告名称">
+                    <span ng-if="!isCopy"class="query-span">七天登录-1</span>
+                </div>
+                <br/>
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-if="isCopy">*</label>公告内容:
+                    <textarea ng-if="isCopy" class="textarea back-white width-455 margin-left-7 text-top-align" rows="5"></textarea>
+                    <span ng-if="!isCopy" class="query-span content-span">【七天登陆】登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆就送哟！</span>
+                </div>
+                <div class="form-group margin-left-14 white-plugin">
+                    <span class="f-l"> <label class="red-star" ng-if="isCopy">*</label>公告时间:</span>
+                    <date-button ng-if="isCopy" datename="copydate" single-date="false" class="f-r text-top-align margin-left-14" required></date-button>
+                    <span ng-if="!isCopy"class="query-span">&nbsp;2015-11-24 ~ 2015-12-01</span>
+                </div>
+                <div class="form-group margin-left-14">
+                    <label class="red-star" ng-if="isCopy" >*</label>优先级：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-200 margin-left-14" placeholder="1">
+                    <span ng-if="!isCopy"class="query-span">1</span>
+                </div>
+                <br/>
+                <div class="form-group margin-left-14">
+                    <label class="red-star" ng-if="isCopy">&nbsp;</label>新闻链接：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-200" placeholder="">
+                    <span ng-if="!isCopy" class="query-span">http://www.baidu.com</span>
+                    <span class="margin-left-19"><input type="checkbox" ng-if="isCopy">
+                        特殊链接<span ng-if="!isCopy" class="query-span">：否</span>
+                    </span>
+
+                </div>
+            </form>
+        </modal-pane>
+    </modal-dialog>
+</div>

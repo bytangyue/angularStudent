@@ -1,0 +1,22 @@
+<div ng-init="isShowFiltrate = false" class="dropdown f-r {{filbtnclass}}"
+     ng-class="{true:'open',false:''}[isShowFiltrate]" ng-mouseleave="clicknum=0;filbtnclass='mleavediv'"
+     ng-mouseover="filbtnclass='moverdiv'">
+    <div class="date-plugin" ng-click="filtrateShowOrHide()">
+        <a class="f-l">
+            <span class="fil-text">{{filparms.popname}}</span>
+        </a>
+        <a class="f-l">
+            <span class="caret"></span>
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="dropdown-menu choose-content {{filparms.classname}}" ng-show="isShowFiltrate">
+        <div class="arrow-up"></div>
+        <div ng-transclude>
+        </div>
+        <div class="data-footer f-r">
+            <button type="button" class="btn btn-small btn-gray" ng-click="isShowFiltrate = false">取消</button>
+            <button type="button" class="btn btn-small btn-sm-color" ng-click="closeConfirmBtn()">确定</button>
+        </div>
+    </div>
+</div>

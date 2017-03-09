@@ -1,0 +1,114 @@
+[
+  {
+    "id": 501,
+    "area": 2,
+    "name": "酷派",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "IOS"
+      },
+      {
+        "id": 2,
+        "name": "安卓"
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "area": 3,
+    "name": "腾讯",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "abIOS"
+      },
+      {
+        "id": 2,
+        "name": "ab安卓"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "area": 4,
+    "name": "爱思",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "cIOS"
+      },
+      {
+        "id": 2,
+        "name": "c安卓"
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "area": 4,
+    "name": "泡椒",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "dIOS"
+      },
+      {
+        "id": 2,
+        "name": "d安卓"
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "area": 4,
+    "name": "乐视",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "eIOS"
+      },
+      {
+        "id": 2,
+        "name": "e安卓"
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "area": 4,
+    "name": "酷派",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "fIOS"
+      },
+      {
+        "id": 2,
+        "name": "f安卓"
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "area": 1,
+    "name": "360_",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "fIOSggggg"
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "area": 1,
+    "name": "华为",
+    "ptList": [
+      {
+        "id": 1,
+        "name": "安卓(2)"
+      }
+    ]
+  }
+]

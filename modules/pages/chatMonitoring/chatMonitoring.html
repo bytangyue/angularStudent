@@ -1,0 +1,108 @@
+<div class="margin-top-15" ng-controller="chatCtrl">
+    <div ng-init="tipShow=false" class="alert padding-6 alert-danger alert-dismissible margin-top-20 left-right"
+         ng-class=" tipShow ? 'fade in':'hide'" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+        </button>
+        <strong>温馨提示：</strong> {{warn}}！
+    </div>
+    <div class="title-tip-layout title-tip-color left-right margin-top-20"
+         ng-class="serverfil.conData.length>0 ? 'show':'hide'">
+        <p class="text-p" ng-show="serverfil.conData.length>0">
+            <label class="tip-label">服务器 <i class="fa fa-hand-o-right"></i></label>
+            <span ng-if="serverfil.conData==serverarg.inputId">全部</span>
+            <span ng-if="serverfil.conData!=serverarg.inputId">
+                <span ng-repeat="sen in serverfil.conData">{{sen.name}}</span>
+            </span>
+        </p>
+    </div>
+    <div class="form-inline form-div title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <a href="" class="f-r tab-icon" data-toggle="tooltip" data-placement="left"
+               title="{{setOverallTitle}}">
+                <span class="fa fa-info-circle"></span>
+            </a>
+        </div>
+        <div class="form-group margin-bottom-20">
+            <label class="red-star">&nbsp;</label> 服务器：
+            <filtrate-btn filparms="serverfil" nametip="nametip">
+                <filtrate-pane>
+                    <server-popup popuparg="serverarg"></server-popup>
+                </filtrate-pane>
+            </filtrate-btn>
+        </div>
+        <button type="button" class="btn purple-btn btn-padding margin-left-19 margin-bottom-12" ng-disabled="ischat"
+                ng-click="startMonitoring()">
+            <i class="fa" ng-class=" isGoQuery ? 'transform-css fa-spinner':'fa-rss'"></i> 开始监控
+        </button>
+    </div>
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs tabdivparam="tabdivparam">
+            <my-pane ng-repeat="chData in ChatData" title-name="{{chData.serName}}"
+                     titleid="server{{$index}}">
+                <div ng-if="chData.contentData.length>0" class="box-radius" ng-repeat="conData in chData.contentData"
+                     ng-click="showOparate(conData)">
+                    <a href="#">
+                        <span class="color-txt-red size-txt-16">【{{conData.td0}}(角色ID：{{conData.td1}})</span>
+                        <em class="color-txt-yellow">(账号ID：{{conData.td2}})(渠道：{{conData.td3}})</em>
+                        <span class="color-txt-green size-txt-16">(时间：{{conData.td4}})】：</span>
+                        <span class="color-txt-white size-txt-16">{{conData.td5}}</span>
+                    </a>
+                </div>
+                <div ng-if="chData.contentData.length<=0" class="box-radius">
+                    <a href="#">
+                        没有数据！！！
+                    </a>
+                </div>
+            </my-pane>
+        </my-tabs>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <form class="form-inline my-article form-div margin-left-10" novalidate>
+                <span class="blue-color">玩家：<label class="blue-color">{{playerName}}</label></span>
+                <div class="form-group myradio width-pencent-100">
+                    <div class="form-group" ng-init="BanData.forbidden='noBan';">
+                        <input type="radio"  ng-click="emptydata()" ng-model="BanData.forbidden" ng-checked="true" value="noBan" id="notalk"/>
+                        <label for="notalk" class="marticle gray top-2"></label>
+                        &nbsp;&nbsp;禁言时间
+                        <div class="form-group isshowEle" ng-init="BanData.notalktime='1'">：
+                            <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                    ng-model="BanData.notalktime" data-placeholder="请选择禁言时间" data-placeholder="5">
+                                <option value=""></option>
+                                <option value="1">永久</option>
+                                <option value="2">8小时</option>
+                                <option value="3">24小时</option>
+                                <option value="4">3天</option>
+                                <option value="5">7天</option>
+                                <option value="6">15天</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group my-article myradio width-pencent-100">
+                    <div class="form-group">
+                        <input type="radio" ng-click="emptydata()" ng-model="BanData.forbidden" value="Ban" id="freeze"/>
+                        <label for="freeze" class="marticle gray top-2"></label>
+                        &nbsp;&nbsp;<span class="color-red-2">冻结该账号</span>
+                        <div class="form-group isshowEle">
+                            <label class="red-star">&nbsp;</label> <span class="color-red-2">冻结时间：</span>
+                            <input type="text" maxlength="4"  ng-model="BanData.year" onkeyup="utils.clearNoNum(this,'y')" class="form-control border back-white width-60"
+                                   placeholder="年" required> -
+                            <input type="text" maxlength="2"  ng-model="BanData.month" onkeyup="utils.clearNoNum(this,'m')" class="form-control border back-white width-45"
+                                   placeholder="月" required> -
+                            <input type="text" maxlength="2"  ng-model="BanData.day" onkeyup="utils.clearNoNum(this,'d')" class="form-control border back-white width-45"
+                                   placeholder="日" required>
+                            <input type="text" maxlength="2"  ng-model="BanData.hour" onkeyup="utils.clearNoNum(this,'h')" class="form-control border back-white width-45 margin-left-5"
+                                   placeholder="时" required> :
+                            <input type="text" maxlength="2"  ng-model="BanData.minute" onkeyup="utils.clearNoNum(this,'mi')" class="form-control border back-white width-45"
+                                   placeholder="分" required>
+                        </div>
+                    </div>
+                </div>
+            <span class="red-notice">{{dateWarn}}</span>
+            </form>
+        </modal-pane>
+    </modal-dialog>
+</div>

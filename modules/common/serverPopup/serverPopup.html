@@ -1,0 +1,94 @@
+<form class="filform">
+    <!--第一层 start-->
+    <div class="popup-up pupp-border-bg">
+                <!--服务器单选时不加载全部按钮-->
+             <span ng-show="popuparg.servertype!='radio'">
+                 <input type="checkbox" class="hide"
+                        id="all{{popuparg.allCheckRank}}" ng-model="allChecked[popuparg.allCheckRank]"
+                        ng-click="allfun(popuparg.allCheckRank)" value="{{popuparg.inputId}}"/>
+                 <label for="all{{popuparg.allCheckRank}}">全部</label>
+             </span>
+            <span ng-if="popuparg.inputtype=='radio'" ng-repeat="ar in areadata">
+                 <input type="radio" ng-checked="hasSerChecked[$index]" class="hide"
+                        id="ra{{ar.id}}{{popuparg.allCheckRank}}" value="{{ar.id}}" ng-click="getAreaCon(ar.id,$index)"/>
+                 <label for="ra{{ar.id}}{{popuparg.allCheckRank}}">{{ar.name}}</label>
+             </span>
+             <span ng-if="popuparg.inputtype!='radio'" ng-repeat="ar in areadata">
+                 <input type="checkbox" ng-model="hasSerChecked[$index]" class="hide"
+                        id="ch{{ar.id}}{{popuparg.allCheckRank}}" value="{{ar.id}}" ng-click="getAreaCon(ar.id,$index)"/>
+                 <label for="ch{{ar.id}}{{popuparg.allCheckRank}}">{{ar.name}}</label>
+             </span>
+    </div>
+    <!--第一层 end-->
+    <div class="popup-bottom pupp-border-bg" ng-show="alldata.length>0">
+        <div class="row bom-up">
+            <div class="col-xs-6 col-sm-6">
+                <div class="form-fil-xsm position-re">
+                    <input type="text" class="form-control" ng-model="popsearch" placeholder="输入名称或id号查找">
+                    <i class="fa fa-search set-position"></i>
+                </div>
+            </div>
+            <div ng-if="popuparg.inputId!='platform'&&popuparg.servertype!='radio'" class="col-xs-6 col-sm-6 text-right" style="padding-top:10px;">
+                <button type="button" class="btn btn-small btn-gray" ng-click="popCheckAll(true,alldata)">全选
+                </button>
+                <button type="button" class="btn btn-small btn-gray" ng-click="invertPopSelection(alldata)">反选
+                </button>
+                <button type="button" class="btn btn-small btn-gray" ng-click="popCheckAll(false,alldata)">清空
+                </button>
+            </div>
+        </div>
+        <!--第二层 start-->
+        <div class="pop-input-group">
+            <!--服务器、渠道多选 start-->
+            <span ng-if="popuparg.inputId!='platform'&&popuparg.servertype!='radio'" ng-repeat="al in alldata | filter:popsearch">
+                 <input type="checkbox" ng-model="hasConChecked[$index]" class="hide"
+                        id="{{al.id}}ck{{popuparg.allCheckRank}}" value="{{al.id}}" ng-click="singleChecked()"/>
+                 <label for="{{al.id}}ck{{popuparg.allCheckRank}}">{{al.name}}({{al.id}})</label>
+            </span>
+            <!--服务器、渠道多选 end-->
+            <!--服务器单选 start-->
+            <span ng-if="popuparg.inputId=='server'&&popuparg.servertype=='radio'" ng-repeat="al in alldata | filter:popsearch">
+                 <input type="radio" ng-checked="hasConChecked[$index]" class="hide"
+                        id="{{al.id}}sera{{popuparg.allCheckRank}}" value="{{al.id}}" ng-click="singleServerChecked($index)"/>
+                 <label for="{{al.id}}sera{{popuparg.allCheckRank}}">{{al.name}}({{al.id}})</label>
+            </span>
+            <!--服务器单选 end-->
+            <!--平台 start-->
+            <span ng-if="popuparg.inputId=='platform'" ng-repeat="al in alldata | filter:popsearch">
+                 <input type="radio" ng-checked="hasagentChecked[$index]" class="hide"
+                        id="{{al.id}}agpl{{popuparg.allCheckRank}}ra" value="{{al.id}}" ng-click="platformChecked(al.ptList,$index)"/>
+                 <label for="{{al.id}}agpl{{popuparg.allCheckRank}}ra">{{al.name}}({{al.id}})</label>
+            </span>
+            <!--平台 end-->
+        </div>
+        <!--第二层 end-->
+    </div>
+    <!--平台第三层 start-->
+    <div class="popup-bottom pupp-border-bg" ng-if="popuparg.inputId=='platform'"
+            ng-show="platformdata.length>0">
+        <div class="row bom-up">
+            <div class="col-xs-6 col-sm-6">
+                <div class="form-fil-xsm position-re">
+                    <input type="text" class="form-control" ng-model="pltsearch" placeholder="输入名称或id号查找">
+                    <i class="fa fa-search set-position"></i>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 text-right" style="padding-top:10px;">
+                <button type="button" class="btn btn-small btn-gray" ng-click="popCheckAll(true,platformdata)">全选
+                </button>
+                <button type="button" class="btn btn-small btn-gray" ng-click="invertPopSelection(platformdata)">反选
+                </button>
+                <button type="button" class="btn btn-small btn-gray" ng-click="popCheckAll(false,platformdata)">清空
+                </button>
+            </div>
+        </div>
+        <div class="pop-input-group plt-input-group">
+            <span ng-repeat="pld in platformdata | filter:pltsearch">
+                 <input type="checkbox" ng-model="haspltConChecked[$index]" class="hide"
+                        id="{{pld.id}}cpkl{{popuparg.allCheckRank}}" value="{{pld.id}}" ng-click="singleChecked()"/>
+                 <label for="{{pld.id}}cpkl{{popuparg.allCheckRank}}">{{pld.name}}({{pld.id}})</label>
+            </span>
+        </div>
+    </div>
+    <!--平台第三层 end-->
+</form>

@@ -1,0 +1,228 @@
+<div class="margin-top-15" ng-controller="infAndNoticeCtrl">
+    <!--服务器、渠道、平台 start-->
+    <link rel="import" href="../../partial/severAgentPltform/severAgentPltform.html?__inline"/>
+    <!--服务器、渠道、平台 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>定时公告列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checkinfoTableAll(true)">
+                   全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checkinfoTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="querynotice()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>公告名称：
+                                    <input type="text" class="form-control border back-white width-508"
+                                           placeholder="请输入公告名称(此项为非必填项)">
+                                </div>
+                                <div class="form-group">
+                                    <label class="red-star  margin-left-19"></label>公告类型：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="notice.noticeType0" data-placeholder="全部类型">
+                                        <option value=""></option>
+                                        <option value="_easyui_combobox_i1_1" selected>游戏公告</option>
+                                        <option value="_easyui_combobox_i1_2">活动公告</option>
+                                        <option value="_easyui_combobox_i1_3">防骗公告</option>
+                                        <option value="_easyui_combobox_i1_4">停服公告</option>
+                                    </select>
+                                </div>
+                                <div class="form-group white-plugin">
+                                    <span class="f-l"><label class="red-star">&nbsp;</label>时间：&nbsp;</span>
+                                    <date-button datename="querydate" single-date="false"
+                                                 class="f-r text-top-align"></date-button>
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right f-r">
+                    <btn-popup btnquery="addnotice()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form hide-select2-close" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>公告名称：
+                                    <input type="text" ng-model="inNo.name"  class="form-control border back-white width-600"
+                                           placeholder="请输入公告名称" required>
+                                </div>
+                                <br/>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>公告内容：
+                                    <textarea ng-model="inNo.name" placeholder="请输入内容" class="textarea back-white width-600 text-top-align"
+                                              rows="5"></textarea>
+                                </div>
+                                <br/>
+                                <div class="form-group white-plugin">
+                                    <span class="f-l"> <label class="red-star">&nbsp;</label>公告时间：</span>
+                                    <date-button datename="adddate" single-date="false"
+                                                 class="f-r margin-left-8 text-top-align" required></date-button>
+                                </div>
+                                <div class="form-group margin-left-14" ng-init="inNo.freq='1'">
+                                    <label class=""></label>发送频率：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="inNo.freq" data-placeholder="请选择发送频率">
+                                        <option value=""></option>
+                                        <option value="1">5</option>
+                                        <option value="2">10</option>
+                                        <option value="3">30</option>
+                                        <option value="4">60</option>
+                                    </select>
+                                    <span>(分钟/次)</span>
+                                </div>
+                                <div class="form-group"  ng-init="inNo.sendType='1'">
+                                    <label class="red-star">&nbsp;</label>发送方式：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="inNo.sendType" data-placeholder="请选择发送方式">
+                                        <option value=""></option>
+                                        <option value="1">综合聊天</option>
+                                        <option value="2">跑马灯</option>
+                                    </select>
+                                    <span class="red-notice">(综合聊天发送的通知，任何渠道都会收到)</span>
+                                </div>
+                                <div class="form-group" ng-init="inNo.type='1'">
+                                    <label class="red-star">&nbsp;</label>公告类型：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="inNo.type" data-placeholder="请选择公告类型">
+                                        <option value=""></option>
+                                        <option value="1">游戏公告</option>
+                                        <option value="2">活动公告</option>
+                                        <option value="3">防骗公告</option>
+                                        <option value="4">停服公告</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" ng-click="deleteSelected()" class="btn btn-yellow margin-right-20">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="informAndNoticeTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1700px;"
+                           class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>及时公告</label>
+        </div>
+        <div class="chunk-bottom">
+
+            <form class="form-inline form-div hide-select2-close" novalidate>
+                <div class="form-group width-pencent-100" ng-init="notice.sendType1='1'">
+                    <label class="red-star">*</label> 发送方式：
+                    <select ui-select2="{ allowClear: true}" class="choose-chanel"
+                            ng-model="notice.sendType1" data-placeholder="请选择发送方式" ng-required="true">
+                        <option value=""></option>
+                        <option value="1">综合聊天</option>
+                        <option value="2">跑马灯</option>
+                    </select>
+                </div>
+                <label class="red-star">*</label> 公告内容：
+                <div class="width-pencent-100 padding-left-75">
+                    <textarea class="textarea no-border " rows="5"></textarea>
+                </div>
+                <br/>
+                <button type="submit" class="btn f-r purple-btn margin-bottom-20 height-34">
+                    立即发送
+                </button>
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <form class="form-inline form-div hide-select2-close" novalidate>
+                <div class="form-group width-pencent-100">
+                    <label class="red-star" ng-show="isCopy">*</label>目标服务器：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455"
+                           placeholder="请将输入的服务器名以英文,隔开">
+                    <span ng-if="!isCopy" class="query-span">超能T1服</span>
+                </div>
+                <br/>
+
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-show="isCopy">&nbsp;</label>目标渠道：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455"
+                           placeholder="请将输入的渠道名以英文,隔开">
+                    <span ng-if="!isCopy" class="query-span">全渠道</span>
+                </div>
+                <br/>
+
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-show="isCopy">*</label>公告名称：
+                    <input type="text" ng-if="isCopy" class="form-control border back-white width-455"
+                           placeholder="请输入公告名称">
+                    <span ng-if="!isCopy" class="query-span">七天登录-1</span>
+                </div>
+                <div class="form-group margin-left-14 width-pencent-100">
+                    <label class="red-star" ng-show="isCopy">*</label>公告内容：
+                    <textarea ng-if="isCopy" class="textarea back-white width-455 text-top-align"
+                              rows="5"></textarea>
+                    <span ng-if="!isCopy"
+                          class="query-span content-span">【七天登陆】登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆就送哟！</span>
+                </div>
+
+                <div class="form-group margin-left-14 white-plugin">
+                    <span class="f-l"><label class="red-star" ng-show="isCopy">*</label>公告时间： </span>
+                    <date-button ng-if="isCopy" datename="copydate" single-date="false"
+                                 class="f-r text-top-align margin-left-8" required></date-button>
+                    <span ng-if="!isCopy" class="query-span">&nbsp;2015-11-24 ~ 2015-12-01</span>
+                </div>
+                <div class="form-group margin-left-14">
+                    <label class="red-star" ng-show="isCopy">&nbsp;</label>公告类型：
+                    <select ng-if="isCopy" ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="notice.noticeType1" data-placeholder="游戏公告" ng-required="true">
+                        <option value=""></option>
+                        <option value="_easyui_combobox_i1_1">游戏公告</option>
+                        <option value="_easyui_combobox_i1_2">活动公告</option>
+                        <option value="_easyui_combobox_i1_3">防骗公告</option>
+                        <option value="_easyui_combobox_i1_4">停服公告</option>
+                    </select>
+                    <span ng-if="!isCopy" class="query-span">游戏公告</span>
+                </div>
+
+                <div class="form-group" ng-class="isCopy?'margin-left-35':'margin-left-14'">
+                    <label class="red-star" ng-show="isCopy">&nbsp;</label>发送方式：
+                    <select ng-if="isCopy" ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="notice.fast" data-placeholder="综合聊天">
+                        <option value=""></option>
+                        <option value="1">综合聊天</option>
+                        <option value="2">跑马灯</option>
+                    </select>
+                    <span ng-if="!isCopy" class="query-span query-width">跑马灯</span>
+                </div>
+                <div class="form-group margin-left-14">
+                    <label class="red-star" ng-show="isCopy">&nbsp;</label>发送频率：
+                    <select ng-if="isCopy" ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="notice.fast" data-placeholder="1" ng-required="true">
+                        <option value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <span ng-if="!isCopy" class="query-span">120</span>
+                    <span class="query-span">(分钟/次)</span>
+                </div>
+            </form>
+        </modal-pane>
+    </modal-dialog>
+</div>

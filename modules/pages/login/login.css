@@ -1,0 +1,105 @@
+/**  description 登录样式
+ *   author tangyue
+ *   date 2015/10/12
+ */
+*, html, body {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+}
+
+.container-fluid {
+    position: relative;
+    background-color: #7575ac;
+    width: 100%;
+}
+
+.com-top h1 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.computer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: url("img/computer.png?__inline") no-repeat center 0;
+    background-size: 100% 100%;
+}
+
+@media (min-width: 1190px) {
+    .computer {
+        width: 800px;
+        height: 700px;
+        margin: -350px 0 0 -400px;
+    }
+
+    .com-top h1 {
+        padding-top: 8rem;
+        font-size: 5.6rem;
+    }
+
+    .form-div {
+        width: 280px;
+        padding: 4rem 1.5rem 1rem 0;
+    }
+
+
+}
+
+@media (max-width: 1190px) {
+    .computer {
+        width: 650px;
+        height: 550px;
+        margin: -275px 0 0 -325px;
+    }
+
+    .com-top h1 {
+        padding-top: 3rem;
+        font-size: 4.6rem;
+    }
+
+    .form-div {
+        width: 230px;
+        padding: 3rem 1.5rem 2rem 0;
+    }
+
+
+}
+
+.form-horizontal .control-label {
+    padding-top: 0rem !important;
+}
+.form-div{
+    margin: 0 auto;
+}
+.form-div .user, .form-div .key {
+    height: 40px;
+}
+
+.form-div .login {
+    width:100%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #57565C;
+}
+.copyright {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    width: 800px;
+    margin-left: -400px;
+}
+
+.copyright p {
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+}
+/*验证提示*/
+.tooltip-inner {
+    background-color: #f0ad4e;
+}
+.tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #f0ad4e;
+}

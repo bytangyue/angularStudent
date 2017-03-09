@@ -1,0 +1,26 @@
+[
+  {
+    "id":1,
+    "club_res_scroll_name": "ÃÏ∑£æÌ÷·",
+    "club_res_scroll_lvl": 1,
+    "club_res_scroll_next_exp": 13000
+  },
+  {
+    "id":2,
+    "club_res_scroll_name": " •π‚æÌ÷·",
+    "club_res_scroll_lvl": 1,
+    "club_res_scroll_next_exp": 13000
+  },
+  {
+    "id":3,
+    "club_res_scroll_name": " ÿ”˘æÌ÷·",
+    "club_res_scroll_lvl": 1,
+    "club_res_scroll_next_exp": 10380
+  },
+  {
+    "id":4,
+    "club_res_scroll_name": "º≤∑ÁæÌ÷·",
+    "club_res_scroll_lvl": 0,
+    "club_res_scroll_next_exp": 9080
+  }
+]

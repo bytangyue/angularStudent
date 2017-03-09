@@ -1,0 +1,67 @@
+<div class="margin-top-15" ng-controller="roleFreezeCtrl">
+    <!--服务器单选 start-->
+    <link rel="import" href="../../partial/singleServer/singleServer.html?__inline"/>
+    <!--服务器单选 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>冻结角色</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checkrofreeTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checkrofreeTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="querynotice()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称（此项为非必填项）">
+                                </div>
+
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right f-r">
+                    <btn-popup btnquery="addrolefreeze()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>角色名称：
+                                    <input type="text" class="form-control border back-white width-600" placeholder="请输入角色名称">
+                                </div>
+                                <br/>
+                                <div class="form-group white-plugin">
+                                    <span class="f-l"> <label class="red-star">*</label>冻结时间:&nbsp;</span>
+                                    <date-button datename="adddate" single-date="true" class="f-r margin-left-10 text-top-align" required></date-button>
+                                </div>
+                                <span class="red-notice">(冻结结束时间)</span>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" ng-click="deleteSelected()" class="btn btn-yellow margin-right-20">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="roleFreezeTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 850px;"
+                           class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()"></modal-dialog>
+</div>

@@ -1,0 +1,26 @@
+<div class="dropdown f-r {{moverdiv}}" ng-class="{true:'open',false:''}[popparms.ispopshow]">
+    <div class="date-plugin" ng-click="popShowOrHide()" ng-mouseleave="popnum=0;moverdiv='mleavediv'"
+         ng-mouseover="moverdiv='moverdiv'">
+        <a class="f-l">
+            <span class="{{popparms.iconclass}}"></span>
+            <span>{{popparms.popname}}</span>
+        </a>
+        <a class="f-l">
+            <span class="caret"></span>
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="dropdown-menu choose-content" ng-show="popparms.ispopshow"
+         style="padding: 0;" ng-style="popparms.popposition == 'left'?{right:0,width:748}:{width: 628}">
+        <div class="btnPopup-head">
+            {{popparms.headtitle}}
+            <div class="arrow-up" style="top:-45px;border-bottom-color: #8b8bba;" ng-style="popparms.popposition == 'left' ? {left: '713px'} :{left: '24px'}"></div>
+        </div>
+        <div ng-transclude="popup">
+        </div>
+        <div class="data-footer f-r margin-top-8">
+            <button type="button" class="btn btn-small btn-gray" ng-click="popparms.ispopshow = false">取消</button>
+            <button type="button" class="btn btn-small btn-sm-color" ng-click="popConfirmBtn()">{{popparms.popname}}</button>
+        </div>
+    </div>
+</div>

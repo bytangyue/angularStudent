@@ -1,0 +1,47 @@
+<div class="margin-top-15" ng-controller="expenseCtrl">
+    <!--服务器 start-->
+    <link rel="import" href="../../partial/server/server.html?__inline"/>
+    <!--服务器 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>玩家消费记录列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                    <div class="chunk-btn-left f-l">
+                        <btn-popup btnquery="queryexpense()"
+                                   popparms="querypop">
+                            <popup-pane>
+                                <form class="form-inline form-div" novalidate>
+                                    <div class="form-group width-pencent-100">
+                                        <label class="red-star margin-left-19"></label>角色名称：
+                                        <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称（此项为非必填项）">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="red-star margin-left-19"></label>数据过滤：
+                                        <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                                ng-model="notice.noticeType0" data-placeholder="过滤类型" ng-required="true">
+                                            <option value=""></option>
+                                            <option value="_easyui_combobox_i1_1" selected>金钻</option>
+                                            <option value="_easyui_combobox_i1_2">钻石</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group white-plugin">
+                                        <span class="f-l"><label class="red-star">&nbsp;</label>时间：&nbsp;</span>
+                                        <date-button datename="querydate"single-date="false" class="f-r text-top-align" required></date-button>
+                                    </div>
+                                </form>
+                            </popup-pane>
+                        </btn-popup>
+                    </div>
+                <div class="margin-top-50" ng-controller="expensetableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+</div>

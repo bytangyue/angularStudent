@@ -1,0 +1,265 @@
+/**  description 自定义日期组件样式
+ *   author tangyue
+ *   date 2015/10/23
+ */
+/*日历图标定位*/
+.position-re {
+    position: relative;
+}
+
+.set-position {
+    position: absolute;
+    left: 111px;
+    top: 5px;
+    color: #6889A1;
+}
+.btn-sm-color,.btn-gray:hover,.btn-file-color:hover, .active-file-text {
+    color:#fff;
+    background-color: #a2a2e3;
+}
+.datetimepicker-dropdown-bottom-right, .datetimepicker-dropdown-bottom-left {
+    margin-top: 8px;
+}
+
+.datetimepicker-dropdown-bottom-left {
+    margin-left: -99px;
+}
+
+.set-position2 {
+    left: 110px !important;
+}
+#eDTSpan ,#sDTSpan {
+    padding-bottom: 3px;
+}
+#eDTSpan i,#sDTSpan i{
+    cursor: pointer;
+}
+/*日历图标size*/
+.set-content-width {
+    width: 280px;
+}
+.form-group-xsm input{
+    width: 85px;
+}
+.form-group-xsm input, .single-input{
+    height: 25px;
+}
+.single-input{
+    margin-right: -1px;
+    width: 103px;
+}
+.m-r-1{
+    margin-right: -1px;
+}
+.input-border-radius {
+    border: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    padding-left: 1px;
+}
+.input-border-radius:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+}
+.input-error-class {
+    border-color: rgb(181,15,39)!important;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(181,15,39, .9)!important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(181,15,39, .9)!important;
+}
+.form-group-xsm label {
+    font-size: 12px;
+}
+
+.data-content {
+    padding: 0 8px 0;
+}
+
+.date-plugin .data-text {
+   text-align: center;
+}
+.date-plugin .fil-text{
+    padding: 0 19.5px;
+}
+.date-plugin a {
+    padding: 6px 10px;
+    display: inline-block;
+}
+.date-plugin {
+    cursor: pointer;
+    border-radius: 3px;
+}
+.err-color {
+    color: #9D0F0E;
+    font-size: 10px;
+}
+
+.date-content {
+    padding: 0;
+    margin-left: 1px;
+    margin-top: 14px;
+    transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s; /* Firefox 4 */
+    -webkit-transition: all .4s ease 0s; /* Safari 和 Chrome */
+    -o-transition: all .4s ease 0s; /* Opera */
+}
+
+.date-content .data-head {
+    height: 33px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    font-size: 11px;
+    padding: 8px;
+}
+
+.data-head span:not(.date-first-span):before {
+    content: "|";
+    padding-right: 8px;
+}
+
+.btn-small {
+    padding: 0px 12px !important;
+}
+
+.data-footer {
+    padding: 0 10px 10px;
+}
+/*--------------------颜色  ↓↓↓↓↓-------------------------------------- */
+/*无边框 start*/
+.date-plugin a:first-child {
+    border-right: 1px solid #A8ACB4;
+}
+/*无边框 end*/
+
+/*有边框 start*/
+.white-plugin .date-plugin a:first-child {
+    border: 1px solid #A8ACB4;
+}
+.white-plugin .date-plugin a:last-child{
+    border-right: 1px solid #A8ACB4;
+    border-top: 1px solid #A8ACB4;
+    border-bottom: 1px solid #A8ACB4;
+}
+/*有边框 end*/
+.date-plugin a, .form-inline input {
+    background-color: #8181c1;
+}
+.data-head span a:hover {
+    text-decoration: underline;
+}
+.date-plugin a:first-child {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.date-plugin a:last-child {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+.white-plugin .date-plugin a{
+    background-color: #F3F4F6!important;
+}
+.date-plugin a span{
+    color: #fff;
+}
+.white-plugin .date-plugin a *{
+    color: #5A5C8B!important;
+}
+
+.min-width-77{
+    display: inline-block;
+    min-width: 77px;
+}
+.min-width-215 {
+    display: inline-block;
+    min-width: 216px;
+}
+/*add-on*/
+.input-append {
+    color: #5A5C8B;
+}
+.input-append input{
+    color: #5A5C8B;
+    background-color: transparent;
+}
+.input-append .add-on, .input-prepend .add-on {
+    display: inline-block;
+    height: 25px;
+    padding: 4px;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-left: -9px;
+}
+.input-append .add-on, .input-prepend .add-on, .input-append .btn, .input-prepend .btn, .input-append .btn-group > .dropdown-toggle, .input-prepend .btn-group > .dropdown-toggle {
+    vertical-align: top;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.icon-th {
+    display: inline-block;
+    width: 16px!important;
+    height: 16px!important;
+    line-height: 16px;
+    background: url("../images/calendar.png") no-repeat;
+}
+
+.date-content .data-head {
+    background-color: #a2a2e3;
+    color: #fff;
+}
+.btn-myBlue {
+    background-color: #2C8FBD;
+    color: #fff;
+}
+.data-head > span > a {
+    color: #fff;
+}
+/*修改bootstrap datetimepicker 激活按钮颜色 ↓↓↓↓↓start*/
+.datetimepicker table tr td span.active:active, .datetimepicker table tr td span.active:hover:active,
+.datetimepicker table tr td span.active.disabled:active,
+.datetimepicker table tr td span.active.disabled:hover:active,
+.datetimepicker table tr td span.active.active, .datetimepicker table tr td span.active:hover.active,
+.datetimepicker table tr td span.active.disabled.active,
+.datetimepicker table tr td span.active.disabled:hover.active {/*年月*/
+    background-color: #A5A5EA;
+    background-image: -webkit-linear-gradient(top,#A5A5EA,#6161A2);
+    background-image: linear-gradient(top,#A5A5EA,#6161A2);
+}
+.datetimepicker table tr td.active:active,
+.datetimepicker table tr td.active:hover:active, .datetimepicker table tr td.active.disabled:active,
+.datetimepicker table tr td.active.disabled:hover:active, .datetimepicker table tr td.active.active,
+.datetimepicker table tr td.active:hover.active, .datetimepicker table tr td.active.disabled.active,
+.datetimepicker table tr td.active.disabled:hover.active {
+    background-color: #A5A5EA;
+    background-image: -webkit-linear-gradient(top,#A5A5EA,#6161A2);
+    background-image: linear-gradient(top,#A5A5EA,#6161A2);
+}
+.datetimepicker table tr td span{
+    height: 30px;
+    line-height: 30px;
+}
+/*datetimepicker arrow start*/
+.icon-arrow-left {
+    background-position: 0 0;
+}
+.icon-arrow-right {
+    background-position: -14px 0;
+}
+.icon-arrow-left, .icon-arrow-right {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-top: 1px;
+    *margin-right: .3em;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-image: url("../images/left-right.png");
+    background-repeat: no-repeat;
+}
+/*datetimepicker arrow end*/
+/*修改bootstrap datetimepicker 激活按钮颜色 ↓↓↓↓↓ end*/
+.dropdown-menu{
+    min-width: 138px;
+}

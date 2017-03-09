@@ -1,0 +1,49 @@
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">{{modalparams.title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p ng-if="modalparams.showEle=='dele'">
+                    <span ng-if="modalparams.selectedData!='one'">确定要<span class='red-star'> 删除勾选 </span>的这<span class='red-star'> {{modalparams.selectedData}} </span>行数据吗？</span>
+                    <span ng-if="modalparams.selectedData=='one'">确定要<span class='red-star'> 删除该行 </span>数据吗？</span>
+                </p>
+                <!--拍卖行状态列表 start-->
+                <p ng-if="modalparams.showEle=='auction'">
+                    确定<span class='red-star'> {{modalparams.selectedData}} </span>该行服务器的拍卖行吗？
+                </p>
+                <p ng-if="modalparams.showEle=='mulitClose'">
+                    确定<span class='red-star'> 关闭勾选 </span>的这<span class='red-star'> {{modalparams.selectedData}} </span>个服务器的拍卖行吗？
+                </p>
+                <p ng-if="modalparams.showEle=='mulitOpen'">
+                    确定<span class='red-star'> 开启勾选 </span>的这<span class='red-star'> {{modalparams.selectedData}} </span>个服务器的拍卖行吗？
+                </p>
+                <!--拍卖行状态列表 end-->
+                <p ng-if="modalparams.showEle=='talk'">
+                    确定要<span class='red-star'> 全部 </span>服务器<span
+                        class='red-star'> {{modalparams.selectedData}}言！</span>
+                </p>
+
+                <div ng-if="modalparams.showEle=='other'" ng-transclude="nodele">
+
+                </div>
+            </div>
+            <div class="modal-footer" ng-init="modalparams.count=''">
+                <button type="button" class="btn btn-default height-25 padding-15" data-dismiss="modal">
+                    {{modalparams.btnText1}}
+                </button>
+                <button type="button" class="btn height-25 padding-15"
+                        ng-class="modalparams.showEle=='other'?'purple-btn':'btn-yellow'"
+                        ng-if="modalparams.btnText2!=''"
+                        ng-disabled="modalparams.isEdit" ng-click="modalEnsure()">
+                    <span ng-if="modalparams.showEle!='other'">{{modalparams.count}}</span>
+                    {{modalparams.btnText2}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

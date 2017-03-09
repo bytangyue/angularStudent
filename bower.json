@@ -1,0 +1,47 @@
+{
+  "name": "angularJsTest",
+  "version": "0.0.1",
+  "authors": [
+    "zxx",
+    "tangyue"
+  ],
+  "description": "angularjs 测试",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.4",
+    "angular-cookies": "~1.4.7",
+    "bootstrap": "~3.3.5",
+    "angular-ui-router": "~0.2.15",
+    "font-awesome": "~4.4.0",
+    "echarts": "~2.2.7",
+    "zrender": "~2.1.1",
+    "angular": "angularjs#~1.4.7",
+    "angular-datatables": "~0.5.2",
+    "angular-resource": "~1.4.7",
+    "datatables": "~1.10.9",
+    "SpinKit": "spinkit#~1.2.2",
+    "moment": "~2.10.6",
+    "bootstrap-datetimepicker": "~0.0.11",
+    "angular-screenfull": "~0.1.0",
+    "nprogress": "~0.2.0",
+    "datatables-fixedcolumns": "~3.2.0",
+    "datatables-buttons": "~1.1.0",
+    "angular-ui-select2": "~0.0.5",
+    "datatables-select": "~1.1.0",
+    "datatables-responsive": "~2.0.0",
+    "codemirror": "~5.10.0"
+  }
+}

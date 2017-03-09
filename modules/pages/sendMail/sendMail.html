@@ -1,0 +1,323 @@
+<div class="margin-top-15" ng-controller="sendMailCtrl">
+    <div class="title-tip-layout title-tip-color left-right margin-top-20"
+         ng-class="serverfil.conData.length>0 || agentfil.conData.length>0? 'show':'hide'">
+        <p class="text-p" ng-show="serverfil.conData.length>0">
+            <label class="tip-label">服务器 <i class="fa fa-hand-o-right"></i></label>
+            <span ng-if="serverfil.conData==serverarg.inputId">全部</span>
+            <span ng-if="serverfil.conData!=serverarg.inputId">
+                <span ng-repeat="sen in serverfil.conData">{{sen.name}}</span>
+            </span>
+        </p>
+
+        <p class="text-p" ng-show="agentfil.conData.length>0">
+            <label class="tip-label">渠道 <i class="fa fa-hand-o-right"></i></label>
+            <span ng-if="agentfil.conData==agentarg.inputId">全部</span>
+                            <span ng-if="agentfil.conData!=agentarg.inputId">
+                            <span ng-repeat="agn in agentfil.conData">{{agn.name}}</span>
+                            </span>
+        </p>
+    </div>
+    <div class="form-inline form-div title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <a href="" class="f-r tab-icon" data-toggle="tooltip" data-placement="left"
+               title="{{setOverallTitle}}">
+                <span class="fa fa-info-circle"></span>
+            </a>
+        </div>
+        <div class="form-group margin-bottom-20">
+            <label class="red-star">&nbsp;</label> 服务器：
+            <filtrate-btn filparms="serverfil" nametip="nametip">
+                <filtrate-pane>
+                    <server-popup popuparg="serverarg"></server-popup>
+                </filtrate-pane>
+            </filtrate-btn>
+        </div>
+    </div>
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs tabdivresize="resettable()">
+            <my-pane title-name="编写邮件">
+                <ul class="step row">
+                    <li id="editMail" ng-class="stepObj.isEditMail?'active':'';" class=" step-item col-md-4">
+                        <span><i class="badge">1</i> 编写邮件</span>
+                    </li>
+                    <li id="accessory" ng-class="stepObj.isAccessory?'active':'';" class="step-item col-md-4">
+                        <span><i class="badge">2</i> 附件管理</span>
+                    </li>
+                    <li id="sendMail" ng-class="stepObj.isSendMail?'active':'';" class="step-item col-md-4 no-bg-img">
+                        <span><i class="badge">3</i> 发送邮件</span>
+                    </li>
+                </ul>
+                <div class="step-content">
+                    <div  ng-show="stepObj.stepCurrent=='editMail'">
+                        <form class="form-inline form-div hide-select2-close" novalidate>
+                            <div class="form-group margin-bottom-12 my-input-group" ng-init="typechecked=true">
+                                <span class="f-l"><label class="red-star">&nbsp;</label> 发送方式：</span>
+                                <input type="radio" class="hide" ng-model="sendtype" ng-checked="typechecked"
+                                       value="roles"
+                                       id="roles" ng-click="typechecked=true"/>
+                                <label for="roles" class="purple-btn label-0 height-34">角色发送</label>
+                                <input type="radio" class="hide" ng-model="sendtype" ng-checked="!typechecked"
+                                       value="groups"
+                                       id="groups" ng-click="typechecked=false"/>
+                                <label for="groups" class="purple-btn label-1 height-34">按组发送</label>
+                            </div>
+                            <div class="form-group margin-left-10 margin-bottom-12">
+                                <label class="red-star">*</label> 邮件主题：
+                                <input type="text" class="form-control no-bg-color width-321" placeholder="请输入主题名称">
+                                <span class="color-lightgray">（15字限制）</span>
+                            </div>
+                            <!------------------------------------按角色发送内容--------------------------------------->
+                            <div ng-show="typechecked">
+                                <label class="red-star">*</label> 玩家名称：
+                                <div class="width-pencent-100 padding-left-75">
+                                    <textarea class="textarea no-bg-color" rows="5"></textarea>
+                                    <span class="color-lightgray">（用逗号分隔开玩家名称，只能输入500个字符）</span>
+                                </div>
+                            </div>
+                            <!-------------------------------------------按组发送内容开始------------------------------>
+                            <div ng-show="!typechecked" class="my-article margin-bottom-12">
+                                <div class="form-group myradio"><label class="red-star">*</label> 按组发送：
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" ng-click="emptyAgentData()"
+                                               ng-checked="true"
+                                               value="all" id="all"/>
+                                        <label for="all" class="marticle gray"></label>
+                                        &nbsp;&nbsp;所有
+                                    </div>
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" ng-click="emptyAgentData()"
+                                               value="camp"
+                                               id="camp"/>
+                                        <label for="camp" class="marticle gray"></label>
+                                        &nbsp;&nbsp;按阵营
+                                        <select ng-init="notice.fast='0'" ui-select2="{ allowClear: true}"
+                                                class="choose-chanel isshowEle white-select2"
+                                                ng-model="notice.fast" data-placeholder="1" ng-required="true">
+                                            <option value="0">雷霆</option>
+                                            <option value="1">圣火</option>
+                                            <option value="2">暴风</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" ng-click="emptyAgentData()"
+                                               value="army"
+                                               id="army"/><label
+                                            for="army" class="marticle gray"></label>
+                                        &nbsp;&nbsp;按军团
+                                        <input type="text" class="form-control no-bg-color width-200 isshowEle"
+                                               placeholder="请输入军团名称">
+                                    </div>
+                                    <div class="form-group margin-left-14">
+                                        <input type="radio" ng-model="sendgroup" value="agent" id="agent"/><label
+                                            class="marticle gray" for="agent"></label>
+                                        &nbsp;&nbsp;渠道
+                                        <div class="isshowEle ver-middle group-agent">
+                                            <filtrate-btn filparms="agentfil" nametip="nametip">
+                                                <filtrate-pane>
+                                                    <server-popup popuparg="agentarg"></server-popup>
+                                                </filtrate-pane>
+                                            </filtrate-btn>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <label class="red-star">*</label> 邮件内容：
+                            <div class="width-pencent-100 padding-left-75">
+                                <textarea class="textarea no-bg-color" rows="5"></textarea>
+                                <span class="color-lightgray">（300字限制）</span>
+                            </div>
+                        </form>
+                        <button type="button" ng-click="stepObj.stepCurrent='accessory';setStepActive();" class="btn btn-green margin-left-101 margin-top-20">
+                            保存并且下一步
+                        </button>
+                        <button type="button" class="btn btn-green-no margin-left-15 margin-top-20">
+                            取消
+                        </button>
+                    </div>
+                   <div ng-show="stepObj.stepCurrent=='accessory'">
+                       <!-------------------------------------------附件/网址开始------------------------------>
+                       <form class="form-inline form-div hide-select2-close" novalidate>
+                       <link rel="import" href="../../partial/accessoryOrWebaddress/accessoryOrWebaddress.html?__inline"/>
+                       <div ng-if="accechecked" class="accemanpadding m-t-15" ng-controller="acceTableCtrl as showCase">
+                           <label class="position-re sign-position color-purple">附件列表</label>
+                           <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                  dt-instance="showCase.dtInstance"
+                                  class="table-striped dataTable table-bordered padding-15"></table>
+                       </div>
+                           </form>
+                       <!--------------------------------------附件/网址结束------------------------------------>
+                       <br/>
+                       <button type="button" ng-click="stepObj.stepCurrent='sendMail';setStepActive();" class="btn btn-green margin-left-101 margin-top-20">
+                           保存并且下一步
+                       </button>
+                       <button type="button" ng-click="stepObj.stepCurrent='editMail';setStepActive();" class="btn btn-green-no margin-left-15 margin-top-20">
+                           返回上一步
+                       </button>
+                 </div>
+                    <div  ng-show="stepObj.stepCurrent=='sendMail'">
+                        <button type="button" ng-click="sendOntime()" ng-class=" setTimeSend ?'btn-purple-no-active':''"
+                                class="btn btn-purple-no margin-left-90 margin-bottom-12">
+                            定时发送设置
+                        </button>
+                        <form ng-if="setTimeSend" class="form-inline form-div" novalidate>
+                            <div class="form-group width-pencent-100 margin-bottom-12">
+                                <label class="red-star">*</label>邮件名称：
+                                <input type="text" class="form-control no-bg-color width-455"
+                                       placeholder="请输入邮件名称名称" required>
+                                <span class="color-lightgray">（15字限制）</span>
+                            </div>
+                            <div class="form-group width-pencent-100 margin-bottom-12">
+                                <label class="red-star">*</label>生效时间：
+                                <input type="text" maxlength="4" ng-model="takeeffyear" onkeyup="utils.clearNoNum(this,'y')"
+                                       class="form-control no-bg-color width-60"
+                                       placeholder="年" required> -
+                                <input type="text" maxlength="2" ng-model="takeeffmonth" onkeyup="utils.clearNoNum(this,'m')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="月" required> -
+                                <input type="text" maxlength="2" ng-model="takeeffday" onkeyup="utils.clearNoNum(this,'d')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="日" required>
+                                <input type="text" maxlength="2" ng-model="takeeffhour" onkeyup="utils.clearNoNum(this,'h')"
+                                       class="form-control no-bg-color width-45 margin-left-5"
+                                       placeholder="时" required> :
+                                <input type="text" maxlength="2" ng-model="takeeffminute" onkeyup="utils.clearNoNum(this,'mi')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="分" required>
+                            </div>
+                            <div class="form-group width-pencent-100 margin-bottom-12">
+                                <label class="red-star">*</label>失效时间：
+                                <input type="text" maxlength="4" ng-model="loseeffyear" onkeyup="utils.clearNoNum(this,'y')"
+                                       class="form-control no-bg-color width-60"
+                                       placeholder="年" required> -
+                                <input type="text" maxlength="2" ng-model="loseeffmonth" onkeyup="utils.clearNoNum(this,'m')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="月" required> -
+                                <input type="text" maxlength="2" ng-model="loseeffday" onkeyup="utils.clearNoNum(this,'d')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="日" required>
+                                <input type="text" maxlength="2" ng-model="loseeffhour" onkeyup="utils.clearNoNum(this,'h')"
+                                       class="form-control no-bg-color width-45 margin-left-5"
+                                       placeholder="时" required> :
+                                <input type="text" maxlength="2" ng-model="loseeffminute" onkeyup="utils.clearNoNum(this,'mi')"
+                                       class="form-control no-bg-color width-45"
+                                       placeholder="分" required>
+                            </div>
+                            <span class="red-notice">{{dateWarn}}</span>
+
+                            <div class="form-group margin-bottom-12">
+                                <label class="red-star">*</label>间隔时间：
+                                <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                        ng-model="notice.fast" data-placeholder="5">
+                                    <option value=""></option>
+                                    <option value="1">5</option>
+                                    <option value="2">10</option>
+                                    <option value="3">30</option>
+                                    <option value="4">60</option>
+                                </select>
+                                <span>(分钟/次)</span>
+                            </div>
+                        </form>
+                        <br/>
+                        <button type="button"  class="btn btn-green margin-left-90 margin-top-20">
+                            确认无误，立即发送
+                        </button>
+                        <button type="button" ng-click="stepObj.stepCurrent='accessory';setStepActive();" class="btn btn-green-no margin-left-15 margin-top-20">
+                            返回上一步
+                        </button>
+                    </div>
+                </div>
+            </my-pane>
+            <my-pane title-name="定时邮件列表">
+                <div class="chunk-bottom">
+                    <div class="chunk-btn">
+                        <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                                ng-click="checksmailTableAll(true)">
+                            全选
+                        </button>
+                        <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                                ng-click="checksmailTableAll(false)">
+                            取消
+                        </button>
+                        <div class="chunk-btn-left f-l">
+                            <btn-popup btnquery="querysendmail()"
+                                       popparms="querypop">
+                                <popup-pane>
+                                    <form class="form-inline form-div" novalidate>
+                                        <div class="form-group width-pencent-100">
+                                            <label class="red-star margin-left-19"></label>邮件名称：
+                                            <input type="text" class="form-control border back-white width-508"
+                                                   placeholder="请输入邮件名称（此项为非必填项）">
+                                        </div>
+                                        <div class="form-group margin-left-35 white-plugin">
+                                            <span class="f-l"><label class="red-star">&nbsp;</label>时间：&nbsp;</span>
+                                            <date-button datename="querydate" single-date="false"
+                                                         class="f-r text-top-align"
+                                                         required></date-button>
+                                        </div>
+                                    </form>
+                                </popup-pane>
+                            </btn-popup>
+                        </div>
+                        <div class="chunk-btn-right f-r">
+                            <button type="button" ng-click="deleteSelected()" class="btn btn-yellow margin-right-20">
+                                <i class="fa fa-trash-o"></i> 批量删除
+                            </button>
+                        </div>
+                        <div class="margin-top-50" ng-controller="timeMailCtrl as showCase">
+                            <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                   dt-instance="showCase.dtInstance" style="min-width: 1200px;"
+                                   class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+
+                </div>
+            </my-pane>
+        </my-tabs>
+
+    </div>
+
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <div ng-if="sendMailText=='queryone'" class="form-inline form-div">
+                <div class="form-group width-pencent-100">
+                    服务器：<span class="query-span">这是服务器的名称</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    邮件名称：<span class="query-span">这是邮件的名称</span>
+                </div>
+                <div class="form-group width-pencent-100">
+                    邮件主题：<span class="query-span">这是邮件主题的名称</span>
+                </div>
+                <div class="form-group">
+                    生效时间：<span class="query-span">2015-11-24 22:22:22</span>
+                </div>
+                <div class="form-group margin-left-35">
+                    失效时间：<span class="query-span">2015-12-01 22:22:22</span>
+                </div>
+                <div class="form-group">
+                    发送方式：<span class="query-span">按组发送</span>-<span class="query-span">按阵营</span>-<span
+                        class="query-span">雷霆</span>
+                </div>
+                <div class="form-group margin-left-35">
+                    间隔时间：<span class="query-span">20</span>（分钟）
+                </div>
+                <div class="form-group width-pencent-100">
+                    邮件内容:<span class="query-span">【英雄碎片】等级登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆登陆就送[火之舞，八岐炎]两位强力英雄，还有海量钻石道具，登陆就送哟！就送哟！</span>
+                </div>
+                <!-- 网址信息-->
+                <div class="form-group width-pencent-100">
+                    网址信息：<span class="query-span">www.baidu.com</span>、<span class="query-span">www.baidu.com</span>
+                </div>
+                <!-- 附件信息-->
+                <div class="m-t-15" ng-controller="oneAcceTableCtrl as showCase">
+                    <label class="position-re sign-position">附件信息</label>
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </div>
+        </modal-pane>
+    </modal-dialog>
+</div>

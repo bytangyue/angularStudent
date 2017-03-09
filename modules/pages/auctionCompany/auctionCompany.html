@@ -1,0 +1,120 @@
+<div class="margin-top-15" ng-controller="auctioneCtrl">
+    <!--服务器 start-->
+    <div ng-show="ishideSer">
+        <!--服务单选-->
+        <div class="title-tip-layout title-tip-color left-right margin-top-20"
+             ng-class="serverfil.conData.length>0 ? 'show':'hide'">
+            <p class="text-p">
+                <label class="tip-label">服务器 <i class="fa fa-hand-o-right"></i></label>
+                <span ng-repeat="sen in serverfil.conData">{{sen.name}}</span>
+            </p>
+        </div>
+        <div class="form-inline form-div title-tip-layout panel-color left-right margin-top-20">
+            <div class="chunk-head">
+                <a href="" class="f-r tab-icon" data-toggle="tooltip" data-placement="left"
+                   title="{{setOverallTitle}}">
+                    <span class="fa fa-info-circle"></span>
+                </a>
+            </div>
+            <div class="form-group margin-bottom-20">
+                <label class="red-star">&nbsp;</label> 服务器：
+                <filtrate-btn filparms="serverfil" nametip="nametip">
+                    <filtrate-pane>
+                        <server-popup popuparg="singleserverarg"></server-popup>
+                    </filtrate-pane>
+                </filtrate-btn>
+            </div>
+        </div>
+    </div>
+    <div ng-show="!ishideSer" ng-init="tipShow=false" class="alert padding-6 alert-danger alert-dismissible margin-top-20 left-right" ng-class=" tipShow ? 'fade in':'hide'" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <strong>温馨提示：</strong> {{warn}}！
+    </div>
+    <!--服务器 end-->
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs  tabdivresize="resettable()">
+            <my-pane title-name="商品列表" titleid="product">
+                <div class="clear"></div>
+                <div class="chunk-btn-left margin-top-20 f-l">
+                    <btn-popup btnquery="querysingleserver()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称(此项为非必填项)">
+                                </div>
+                                <div class="form-group white-plugin">
+                                    <label class="red-star margin-left-19"></label>上架时间：
+                                    <date-button datename="adddate" single-date="true" class="f-r margin-left-7 text-top-align" required></date-button>
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="clear"></div>
+                <div ng-controller="productTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1050px;"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="交易记录列表" titleid="recode">
+
+                <div class="chunk-btn-left margin-top-20 f-l">
+                    <btn-popup btnquery="querysingleserver()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-14"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称(此项为非必填项)">
+                                </div>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>物品SID：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入物品SID(此项为非必填项)">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div ng-controller="tradeRecodeTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1000px;"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="拍卖行状态列表" titleid="state">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn margin-top-20"
+                        ng-click="checkauctionTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20 margin-top-20"
+                        ng-click="checkauctionTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left margin-top-20 f-l">
+                    <button type="button"  class="btn purple-btn">
+                        <i class="fa fa-refresh"></i> 刷新
+                    </button>
+                </div>
+                <div class="chunk-btn-right margin-top-20 f-r">
+                    <button type="button" ng-click="offauction()" class="btn btn-yellow margin-right-20 ">
+                        <i class="fa fa-toggle-off"></i> 关闭拍卖行
+                    </button>
+                    <button type="button" ng-click="onauction()" class="btn purple-btn">
+                        <i class="fa fa-toggle-on"></i> 开启拍卖行
+                    </button>
+                </div>
+                <div class="clear"></div>
+                <div ng-controller="auctionStateTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+        </my-tabs>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()"></modal-dialog>
+</div>

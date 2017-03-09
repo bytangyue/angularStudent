@@ -1,0 +1,57 @@
+<div class="my-article form-group">
+    <div class="mycheckbox">
+        <span class="color-purple">【温馨提示：下面的复选框全部勾选的话会同时添加2条附件数据哦！】</span>
+        <div class="bom-10">
+            <input type="checkbox" ng-model="accessory.equip" ng-checked="true" value="equip" id="equip" ng-click="isShowAccefun()"/>
+            <label for="equip" class="marticle gray d-p re-cle"></label>
+            <span class="d-p re-top">&nbsp;装备物品</span>
+            <div class="isshowEle">
+                <div class="form-group" ng-init="equipm.material='0'">
+                    <label class="red-star"></label>->物品类
+                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="equipm.material" data-placeholder="军团材料" ng-required="true">
+                        <option value=""></option>
+                        <option value="0">军团材料</option>
+                        <option value="1">圣火</option>
+                        <option value="2">下拉内容有点多</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-init="equipm.goodsname='0'">
+                    <label class="red-star"></label>物品名称
+                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="equipm.goodsname" data-placeholder="请选择物品名称" ng-required="true">
+                        <option value=""></option>
+                        <option value="0">魔鬼无芯花(370026)</option>
+                        <option value="1">圣火(370026)</option>
+                        <option value="2">还有很多下拉内容ggg</option>
+                    </select>
+                </div>
+                <div class="form-group reset-block">
+                    <label class="red-star"> *</label> 数量
+                    <input type="text" ng-model="equipm.num" class="form-control no-bg-color width-80" placeholder="填写数量">
+                </div>
+            </div>
+        </div>
+        <div class="bom-10">
+            <input type="checkbox" ng-model="accessory.currency" value="currency" id="currency" ng-click="isShowAccefun()"/>
+            <label for="currency" class="marticle gray d-p"></label>
+            <span class="d-p">&nbsp;广义货币</span>
+            <div class="isshowEle">
+                <div class="form-group" ng-init="currencym.currencytype='0'">
+                    <label class="red-star"></label>->货币类
+                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="currencym.currencytype" data-placeholder="钻石" ng-required="true">
+                        <option value=""></option>
+                        <option value="0">钻石</option>
+                        <option value="1">圣火</option>
+                        <option value="2">下拉内容有点多</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="red-star">*</label> 数量
+                    <input type="text" ng-model="currencym.num" class="form-control no-bg-color width-80" placeholder="填写数量">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

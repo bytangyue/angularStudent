@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "iconClass": "fa fa-volume-up",
+      "title": "通知与公告",
+      "url": "informAndNotice"
+    },
+    {
+      "iconClass": "fa fa-user-secret",
+      "title": "登录公告",
+      "url": "loginNotice"
+    },
+    {
+      "iconClass": "fa fa-bullhorn",
+      "title": "新闻公告",
+      "url": "newsNotice"
+    },
+    {
+      "iconClass": "fa fa-user",
+      "title": "角色",
+      "url": "role"
+    },
+    {
+      "iconClass": "fa fa-gift",
+      "title": "活动",
+      "url": "activity"
+    },
+    {
+      "iconClass": "fa fa-paper-plane-o",
+      "title": "发送邮件",
+      "url": "sendMail"
+    },
+    {
+      "iconClass": "fa fa-envelope",
+      "title": "首登邮件",
+      "url": "firstMail"
+    },
+    {
+      "iconClass": "fa fa-user-times",
+      "title": "角色冻结",
+      "url": "roleFreeze"
+    },
+    {
+      "iconClass": "fa fa-microphone-slash",
+      "title": "禁言与踢号",
+      "url": "bannedList"
+    },
+    {
+      "iconClass": "fa fa-street-view",
+      "title": "账号信息",
+      "url": "accountInformation"
+    },
+    {
+      "iconClass": "fa fa-glass",
+      "title": "敏感词过滤",
+      "url": "sensitiveFiltration"
+    },
+    {
+      "iconClass": "fa fa-list-alt",
+      "title": "玩家消费记录",
+      "url": "expenseCalendar"
+    },
+    {
+      "iconClass": "fa fa-codepen",
+      "title": "军团",
+      "url": "armyGroup"
+    },
+    {
+      "iconClass": "fa fa-commenting-o",
+      "title": "聊天监控",
+      "url": "chatMonitoring"
+    },
+    {
+      "iconClass": "fa fa-map-o",
+      "title": "弹幕监控",
+      "url": "barrageMonitoring"
+    },
+    {
+      "iconClass": "fa fa-gavel",
+      "title": "拍卖行",
+      "url": "auctionCompany"
+    }
+  ]
+}

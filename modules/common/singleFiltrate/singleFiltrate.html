@@ -1,0 +1,103 @@
+<li>
+    <div class="choose-up">
+        <div class="col-xs-6 col-sm-6">
+            <span>{{filTitle}}：</span>
+
+            <div class="checkBox-div" ng-if="alternative=='true'">
+                <input type="radio" id="{{inputId}}" class="hide" ng-checked="{{selection.id == inputId}}"
+                       name="filterradio" ng-click="toggleBtn()"/>
+                <label for="{{inputId}}"></label>
+            </div>
+            <div class="checkBox-div" ng-if="alternative=='false'">
+                <input type="checkbox" id="{{inputId}}" class="hide" ng-checked="{{singleOpen != 'true'}}"
+                       name="inputopen"
+                       ng-click="toggleBtn()"/>
+                <label for="{{inputId}}"></label>
+            </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 text-right padding-top-8">
+            <span>已经选择<span class="span-num" ng-if="selection.id == inputId">{{checkedNum}}</span><span class="span-num" ng-if="selection.id != inputId">0</span>项</span>
+        </div>
+        <br/>
+    </div>
+    <hr class="bom-10"/>
+
+    <div ng-class="{'true':'hide','false':''}[selection.id != inputId || !singleOpen]">
+        <div ng-if="inputId=='platform'" class="defin-hide" id="platform-div">
+            <button type="button" class="btn btn-small btn-gray f-r"
+                    ng-click="checkAll(false,platformDatas)">清空
+            </button>
+            <div class="clear"></div>
+            <div class="platform-div">
+                        <span ng-repeat="platform in platformDatas | filter:search">
+                            <input ng-if="inputType!='checkbox'" type="radio" class="hide"
+                                   id="{{platform.id}}pf" name="pf"
+                                   value="{{platform.val}}" ng-checked="hasChecked[$index]"
+                                   ng-click="addCheckedNum(platformDatas,$index)"/>
+                            <input ng-if="inputType=='checkbox'" type="checkbox" class="hide"
+                                   id="{{platform.id}}pf" name="{{platform.id}}pf"
+                                   value="{{platform.val}}" ng-model="hasChecked[$index]"
+                                   ng-click="addCheckedNum(platformDatas)"/>
+                            <label for="{{platform.id}}pf">{{platform.text}}</label>
+                            </span>
+            </div>
+        </div>
+        <div class="choose-center">
+            <div class="col-xs-6 col-sm-6">
+                <div class="form-fil-xsm position-re">
+                    <input type="text" class="form-control" ng-model="search" placeholder="输入名称或id号查找">
+                    <i class="fa fa-search set-position"></i>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-6 text-right">
+                <button type="button" ng-if="inputId=='server' || (inputId=='agent'&&inputType=='checkbox')" class="btn btn-small btn-gray"
+                        ng-click="checkAll(true,filDatas)">全选
+                </button>
+                <button type="button" ng-if="inputId=='server' || (inputId=='agent'&&inputType=='checkbox')" class="btn btn-small btn-gray"
+                        ng-click="invertSelection(filDatas)">反选
+                </button>
+                <button type="button" ng-if="inputId=='server' || inputId=='agent'" class="btn btn-small btn-gray"
+                        ng-click="checkAll(false,filDatas)">清空
+                </button>
+            </div>
+        </div>
+        <br/>
+
+        <div class="choose-bottom">
+            <ul>
+                <li id="server-data" ng-if=" inputId=='server' ">
+                            <span ng-repeat="fData in filDatas | filter:search">
+                            <input type="checkbox" class="hide"
+                                   id="{{fData.id}}" name="{{fData.id}}"
+                                   value="{{fData.id}}" ng-model="hasChecked[$index]"
+                                   ng-click="addCheckedNum(filDatas)"/>
+                            <label for="{{fData.id}}">{{fData.text}}({{fData.id}})</label>
+                            </span>
+                </li>
+                <li id="agent-data" ng-if=" inputId=='agent' ">
+                            <span ng-repeat="agent in filDatas | filter:search">
+
+                            <input ng-if="inputType=='checkbox'" type="checkbox" class="hide"
+                                   id="{{agent.id}}" name="{{agent.id}}"
+                                   value="{{agent.val}}" ng-model="hasChecked[$index]"
+                                   ng-click="addCheckedNum(filDatas)"/>
+                              <input ng-if="inputType!='checkbox'" type="radio" class="hide"
+                                     id="{{agent.id}}" name="ag"
+                                     value="{{agent.val}}" ng-checked="hasChecked[$index]"
+                                     ng-click="addCheckedNum(filDatas,$index)"/>
+                            <label for="{{agent.id}}">{{agent.text}}</label>
+                            </span>
+                </li>
+                <li id="platform-data" ng-if=" inputId =='platform' ">
+                    <label class="platformText">渠道名：</label>
+                            <span ng-repeat="agent in filDatas | filter:search">
+                            <input type="radio" class="hide"
+                                   id="{{agent.id}}platform" name="platform" ng-click="showPlatform(agent)"/>
+                            <label data-toggle="popover" data-trigger="focus"
+                                   for="{{agent.id}}platform">{{agent.text}}</label>
+                            </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</li>

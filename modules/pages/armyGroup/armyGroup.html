@@ -1,0 +1,80 @@
+<div class="margin-top-15" ng-controller="armyCtrl">
+    <!--服务器单选 start-->
+    <link rel="import" href="../../partial/singleServer/singleServer.html?__inline"/>
+    <!--服务器单选 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>社团列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="queryarmyGroup()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>社团名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入社团名称（此项为非必填项）">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div ng-controller="armyTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 1250px;"
+                           class="table-striped armyhover hover-pointer dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div ng-if="isshowBottomTable">
+
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs tabdivresize="resettable()">
+            <my-pane title-name="社团成员列表" titleid="1">
+                    <div class="chunk-head margin-bottom-f50 margin-top-12 margin-left-15">
+                        <label>社团名称：</label>
+                        <span class="color-txt-white">{{memberName}}</span>
+                    </div>
+                    <div class="chunk-bottom">
+                        <div class="chunk-btn">
+                            <div ng-controller="membersOTATableCtrl as showCase">
+                                <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                       dt-instance="showCase.dtInstance"
+                                       class="table-striped dataTable table-bordered padding-15"></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+            </my-pane>
+            <my-pane title-name="日志" titleid="2">
+                    <div class="chunk-bottom">
+                        <div class="chunk-btn">
+                            <div ng-controller="armyLogTableCtrl as showCase">
+                                <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                       dt-instance="showCase.dtInstance"
+                                       class="table-striped dataTable table-bordered padding-15"></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+            </my-pane>
+            <my-pane title-name="研究所" titleid="3">
+                    <div class="chunk-bottom">
+                        <div class="chunk-btn">
+                            <div ng-controller="armyGraduateTableCtrl as showCase">
+                                <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                                       dt-instance="showCase.dtInstance"
+                                       class="table-striped dataTable table-bordered padding-15"></table>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+            </my-pane>
+        </my-tabs>
+    </div>
+</div>
+</div>

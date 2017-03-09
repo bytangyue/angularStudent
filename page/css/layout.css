@@ -1,0 +1,1189 @@
+/**  description 项目布局主要样式
+ *   author tangyue
+ *   date 2015/9/28
+ */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Consolas, "Microsoft Yahei";
+}
+a:hover, a:focus {
+    text-decoration: none;
+}
+
+ul, ol, dd {
+    list-style: none;
+}
+
+.f-r {
+    float: right;
+}
+
+.f-l {
+    float: left;
+}
+
+.clear {
+    clear: both;
+}
+
+.text-center {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.padding-left-20 {
+    padding-left: 2rem;
+    min-width: 192.5px;
+}
+
+.margin-top-15 {
+    margin-top: 15px;
+}
+.m-t-15 {
+    margin-top: -15px;
+}
+.padding-left-19 {
+    padding-left: 19px;
+}
+
+.margin-left-19 {
+    margin-left: 19px;
+}
+.margin-left-15 {
+    margin-left: 15px;
+}
+.margin-left-f19 {
+    margin-left: -19px;
+}
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.margin-left-25 {
+    margin-left: 25px;
+}
+
+.margin-left-7 {
+    margin-left: 7px;
+}
+.margin-left-8 {
+    margin-left: 8px;
+}
+.margin-left-65 {
+    margin-left: 65px;
+}
+.margin-left-92 {
+    margin-left: 92px;
+}
+.margin-left-14 {
+    margin-left: 14px;
+}
+
+.margin-left-101 {
+    margin-left: 101px;
+}
+.margin-left-90{
+    margin-left: 90px;
+}
+.border-r-l {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.border-r-r {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.margin-left-35 {
+    margin-left: 35px;
+}
+.margin-left-55 {
+    margin-left: 55px;
+}
+
+.btn-danger {
+    height: 34px;
+}
+
+.padding-15 {
+    padding: 0 15px;
+}
+
+.de-m, .m-t-50 {
+    margin-top: -48px;
+}
+
+.de-m {
+    margin-right: 255px;
+}
+
+.m-r-275 {
+    margin-right: 275px !important;
+}
+
+.m-t-32 {
+    margin-top: -32px !important;
+}
+
+.m-t-50 {
+    margin-right: 295px;
+}
+
+.m-t-47 {
+    margin-top: -47px;
+}
+
+.m-t-r {
+    margin-top: -51px;
+    margin-right: 310px;
+}
+
+.margin-top-50 {
+    margin-top: 50px;
+}
+
+.m-r-160 {
+    margin-right: 160px !important;
+}
+
+.margin-right-20 {
+    margin-right: 20px;
+}
+
+.margin-right10 {
+    margin-right: 10px;
+}
+
+.margin-right-10 {
+    margin-right: -10px;
+}
+
+.margin-right-2 {
+    margin-right: 2px !important;
+}
+
+.margin-top-8 {
+    margin-top: 8px;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.margin-top-12 {
+    margin-top: 12px !important;
+}
+.margin-left-5 {
+    margin-left: 5px;
+}
+
+.p-l-form {
+    padding-left: 15px;
+}
+
+.m-t-28 {
+    margin-top: -28px;
+}
+
+.padding-right-0 {
+    padding-right: 0;
+}
+
+.padding-right-18 {
+    padding-right: 18px !important;
+    -moz-padding-right: 48px !important;
+}
+
+.padding-6 {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px !important;
+}
+
+.margin-bottom-12 {
+    margin-bottom: 12px !important;
+}
+.margin-bottom-f50 {
+    margin-bottom:-50px !important;
+}
+
+.width-470 {
+    width: 470px !important;
+}
+
+.width-455 {
+    width: 455px !important;
+}
+.width-550 {
+    width: 550px !important;
+}
+.width-670 {
+    width: 670px !important;
+}
+
+.width-600 {
+    width: 600px !important;
+}
+
+.width-508 {
+    width: 505px !important;
+}
+.width-200 {
+    width: 200px !important;
+    color: #fff;
+}
+.width-321{
+    width: 321px !important;
+    color:#fff;
+}
+.width-80 {
+    width: 85px !important;
+    color: #FFFFFF;
+}
+.width-45 {
+    width: 45px !important;
+    color: #FFFFFF;
+}
+.width-60 {
+    width: 60px !important;
+    color: #FFFFFF;
+}
+.height-25 {
+    height: 25px !important;
+}
+
+.width-300 {
+    width: 300px !important;
+    color: #FFFFFF;
+    background-color: #8181c1;
+}
+
+.width-pencent-100 {
+    width: 100%;
+}
+
+.width-133 {
+    width: 133px !important;
+}
+
+.height-34 {
+    height: 34px !important;
+    line-height: 22px !important;
+}
+
+.padding-left-75 {
+    padding-left: 95px;
+}
+
+.text-top-align {
+    vertical-align: text-top;
+}
+
+.text-padding {
+    padding-left: 5px;
+}
+
+.bom-10 {
+    margin-bottom: 10px !important;
+}
+
+.save-acce {
+    margin: 5px auto 10px 90px;
+}
+
+.textarea {
+    background-color: #8181C1;
+    color: #FFFFFF;
+    width: 100%;
+    border-radius: 4px;
+    padding: 5px 10px;
+   border:1px solid #A8ACB4;
+}
+
+
+.m-r-sen {
+    margin-right: 345px !important;
+}
+
+.position-re.sign-position {
+    top: 25px;
+}
+
+/*滚动table样式*/
+.min-width-1632 {
+    min-width: 1632px;
+}
+.min-width-1244 {
+    min-width: 1244px;
+}
+
+.min-width-1722 {
+    min-width: 1722px;
+}
+.fix-width-ellipsis {
+    width: 130px !important;
+}
+
+@media (max-width: 1100px) {
+    .all-server input[type="search"] {
+        width: 98px;
+    }
+
+}
+
+/*修改select2样式*/
+.select2-container .select2-choice .select2-arrow {
+    width: 33px;
+}
+
+.white-select2 .select2-choice .select2-arrow {
+    width: 30px;
+}
+
+.select2-container .select2-choice abbr {
+    right: 40px;
+    top: 9px;
+}
+
+.select2-search input {
+    margin-top: 2px !important;
+}
+
+.choose-chanel {
+    min-width: 148px;
+}
+.select2-container.select2-allowclear .select2-choice .select2-chosen {
+    margin-right: 60px;
+}
+
+.select2-search {
+    /*display: none;*/
+}
+.select2-dropdown-open .select2-choice{
+    -webkit-box-shadow: 0 1px 0 #fff inset;
+    box-shadow:none !important;/*删除顶部白边*/
+
+}
+
+
+
+/*main chunk start*/
+.chunk-head {
+    width: 100%;
+}
+
+.chunk-bottom {
+    padding: 0 10px;
+}
+
+.text-p span {
+    padding-right: 20px;
+}
+
+/*main chunk end */
+/*修改select2样式*/
+/*------------------------------------------head start---------------------------------------------------------*/
+.head {
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    height: 72px;
+}
+
+.head .h-mw {
+    min-width: 64.1px;
+}
+
+.head .h-mw .icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    padding: 22% 48%;
+    font-size: 2.5rem;
+}
+
+.head > .h-left {
+    padding-top: .7rem;
+}
+
+.head .bold-font {
+    font-size: 2.2rem;
+}
+
+.head .sm-font {
+    font-size: 1.6rem;
+}
+
+.h-right > ul > li {
+    float: left;
+    height: 72px;
+    padding: 20px 10px;
+}
+
+.m-10 {
+    margin-left: 1rem;
+}
+
+/*------------------------------------------head end---------------------------------------------------------*/
+
+/*------------------------------------------main start---------------------------------------------------*/
+
+.index-sidebar-list > li, .index-sidebar-body > li > a {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+}
+
+.index-sidebar-list > li > a {
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    padding-left: 1rem;
+}
+
+.dashboard {
+    height: 30px !important;
+}
+
+.dashboardRight {
+    line-height: 30px;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.dashboard-icon {
+    line-height: 30px;
+    padding-right: 1rem;
+}
+
+.form-div .form-group, .form-div .refresh, .data-content .form-group {
+    margin-top: 10px;
+}
+
+.myradio .form-group {
+    margin-top: 0;
+}
+
+.form-div .query {
+    margin-bottom: 6px;
+}
+
+.index-sidebar-list > li > .index-sidebar-body {
+    margin-left: 6px;
+}
+
+.shuyin {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+@media (min-width: 1199px) {
+    /*宽屏*/
+    .main-sidebar {
+        width: 250px;
+    }
+    .all-server {
+        margin-right: 500px;
+    }
+    .main-content {
+        padding-left: 250px;
+    }
+
+    .shuyin {
+        width: 800px;
+        height: 300px;
+        margin: -150px 0 0 -310px;
+    }
+
+    .sidebar-close + .main-content .shuyin {
+        margin-left: -370px;
+    }
+}
+
+@media (max-width: 1199px) {
+    /*小屏*/
+    .main-sidebar {
+        width: 210px;
+    }
+    .all-server {
+        margin-right: 15px;
+        margin-top: 10px !important;
+
+    }
+    .main-content {
+        padding-left: 210px;
+    }
+
+    .shuyin {
+        width: 600px;
+        height: 200px;
+        margin: -100px 0 0 -220px;
+    }
+
+    .sidebar-close + .main-content .shuyin {
+        margin-left: -280px;
+    }
+
+    .choose-bottom {
+        height: 50px !important;
+    }
+}
+
+.config-all {
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
+.main-sidebar {
+    position: fixed;
+    left: 0;
+    top: 72px;
+    height: 100%;
+    transition: all .4s ease 0s;
+    -moz-transition: all .4s ease 0s; /* Firefox 4 */
+    -webkit-transition: all .4s ease 0s; /* Safari 和 Chrome */
+    -o-transition: all .4s ease 0s; /* Opera */
+}
+
+.main-content {
+    margin-top: 72px;
+}
+
+.view-content {
+    position: relative;
+    padding-left: 6px;
+    overflow: auto;
+    padding-bottom: 15px;
+}
+.index-sidebar-body > li > a {
+    padding-left: 3rem;
+    margin-top: 1px;
+}
+
+.panel-group .panel {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+    border: none;
+    position: relative;
+}
+
+.panel-group .panel + .panel {
+    margin-top: 0;
+}
+
+.index-sidebar-list .panel .aorIcon {
+    float: right;
+    line-height: 53px;
+    padding-right: 8px;
+}
+
+#panel-div {
+    overflow: auto;
+}
+
+/*--------导航 伸缩 start--------------*/
+.sidebar-close {
+    width: 60px;
+}
+
+.sidebar-close .index-sidebar-body > li > a {
+    padding-left: 19px;
+}
+
+.sidebar-close .aorIcon {
+    padding-right: 5px !important;
+}
+
+.sidebar-close span {
+    display: none;
+}
+
+.sidebar-close + .main-content {
+    padding-left: 60px !important;
+}
+
+/*--------导航 伸缩 end--------------*/
+/*------------------------------------------main end---------------------------------------------------*/
+/*------------------------------------------footer start-------------------------------------------------*/
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 102%;
+    z-index: 99;
+    text-align: center;
+    line-height: 54px;
+}
+
+/*------------------------------------------footer end---------------------------------------------------*/
+/**修改chrome 浏览器滚动条**/
+/**设置滚动条的样式**/
+*::-webkit-scrollbar{
+    width: 6px;
+    height: 6px;
+}
+
+*::-webkit-scrollbar-button{
+    width: 0;
+    height: 0;
+    display: none
+}
+*::-webkit-scrollbar-corner {
+    background-color: transparent
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1)
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1)
+}
+
+*::-webkit-scrollbar-track {
+    border-radius: 20px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0)
+}
+
+
+
+/*------------------------------------------滚动条-------------------------------------------------------------*/
+/*------------------------------------------分页-------------------------------------------------------------*/
+.pagination > li > a {
+    margin-left: 6px;
+    padding: 2px 8px;
+}
+
+.pagination-nav {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.pagination {
+    margin: 11px 0;
+    margin-bottom: 5px;
+}
+
+/*------------------------------------------分页-------------------------------------------------------------*/
+/*------------------------------------------日期插件---------------------------------------------------------*/
+.row-head > div {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+/*------------------------------------------日期插件---------------------------------------------------------*/
+/*------------------------------------------显示框---------------------------------------------------------*/
+.title-tip-layout {
+    border-radius: 3px;
+    padding: 10px 10px 0px;
+}
+
+.left-right {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.title-tip-color > .text-p {
+    margin: 0;
+}
+
+.chunk-btn {
+    padding: 25px 4px;
+}
+
+.tip-label, .tip-label i {
+    color: black !important;
+}
+
+/*------------------------------------------显示框---------------------------------------------------------*/
+/*------------------------------------------表格panel标记---------------------------------------------------------*/
+.table {
+    margin-bottom: 0 !important;
+}
+
+.tab-pane {
+    padding: 10px 20px 10px 20px;
+
+}
+
+@media (min-width: 1435px ) {
+    .tip-nav a {
+        min-width: 122px;
+    }
+}
+
+@media (max-width: 1434px ) and (min-width: 1072px ) {
+    .tip-nav a {
+        min-width: 72px;
+    }
+}
+
+@media (max-width: 1071px ) {
+    .tip-nav a {
+        min-width: 60px;
+    }
+
+    .reset-block {
+        display: block !important;
+        margin-left: 10px;
+    }
+
+    .my-article input[type="checkbox"]:checked + .re-cle + .re-top {
+        top: -42px !important;
+    }
+
+    .my-article input[type="checkbox"]:checked + .re-cle:before,
+    .my-article input[type="checkbox"]:checked + .re-cle:after {
+        top: -50px !important;
+    }
+}
+
+.tip-nav a {
+    display: inline-block;
+    font-size: 15px;
+    text-align: center;
+}
+
+.tabbable .tab-content {
+    margin-top: -1px;
+}
+
+.tip-sign {
+    padding: 5px 10px;
+}
+
+.tab-pane-bom {
+    padding: 10px;
+}
+
+.tab-icon {
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+
+.tab-icon:first-child {
+    margin-left: -5px;
+}
+
+.icon-btn-default {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.dataTables_length {
+    margin-top: 7px;
+}
+
+/*------------------------------------------表格panel标记---------------------------------------------------------*/
+/*icon 的动画旋转 start*/
+.transform-css {
+    -webkit-animation: ad-spinner 750ms linear infinite;
+    animation: ad-spinner 750ms linear infinite;
+}
+
+@-webkit-keyframes ad-spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes ad-spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*icon 的动画旋转 end*/
+.fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 1510px) {
+    .de-close {
+        top: 9px !important;
+    }
+}
+
+.de-close {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/*datatables start*/
+.fix-th > thead > tr > th {
+    min-width: 60px !important;
+}
+
+.buttons-excel div embed, .buttons-excel div {
+    width: 62px;
+    height: 32px;
+}
+
+/*copy 提示框*/
+div.dt-button-info {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    margin-top: -100px;
+    margin-left: -200px;
+    background-color: white;
+    border: 1px solid #abb9b6;
+    box-shadow: 3px 3px 8px rgba(206, 233, 227, 0.3);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 999;
+}
+
+div.dt-button-info h2 {
+    padding: 0.5em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: 0;
+    font-weight: normal;
+    border-bottom: 1px solid #ddd;
+    background-color: #f3f3f3;
+}
+
+.table-bordered > tbody > tr > td {
+    padding: 4px 10px;
+}
+
+div.dt-button-info > div {
+    padding: 1em;
+}
+
+/*datatables end*/
+
+/*btnPopup*/
+.btnPopup-head {
+    height: 40px;
+    padding: 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+/*selected 复选框选中 start*/
+tr.selected td.select-checkbox:after {
+    content: '\2714';
+    margin-top: -11px;
+    margin-left: -4px;
+    text-align: center;
+    color: #8181C1;
+}
+
+td.select-checkbox, .my-article .marticle {
+    position: relative;
+    cursor: pointer;
+}
+
+span.select-all {
+    position: absolute;
+    top: 12px;
+    left: -1px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+td.select-checkbox:before, td.select-checkbox:after {
+    display: block;
+    position: absolute;
+    top: 1.2em; /* Should be 50% but IE doesn't like it*/
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+}
+
+td.select-checkbox:before,
+.my-article .marticle:before {
+    content: ' ';
+    margin-top: -6px;
+    margin-left: -6px;
+    border: 1px solid #8181C1;
+}
+
+.my-article .marticle:before,
+.my-article input[type="radio"]:checked + .marticle:after,
+.my-article input[type="checkbox"]:checked + .marticle:after {
+    position: absolute;
+    top: -4px;
+    left: 50%;
+}
+
+.mycheckbox .marticle:before {
+    top: -2px;
+}
+
+.my-article .marticle:before {
+    content: ' ';
+    width: 16px;
+    height: 16px;
+    border: 1px solid #fff;
+}
+
+.my-article .gray:before {
+    border-color: #b5b5f1 !important;
+}
+
+.my-article input[type="checkbox"]:checked + .gray:after,.my-article input[type="radio"]:checked + .gray:after {
+    color: #b5b5f1 !important;
+}
+.top-2{
+    top:2px;
+}
+
+.my-article .marticle:before {
+    border-radius: 50px;
+}
+
+.my-article .mycheckbox .marticle:before {
+    border-radius: 3px;
+}
+
+.my-article input[type="radio"]:checked + .marticle:after,
+.my-article input[type="checkbox"]:checked + .marticle:after {
+    content: '\2714';
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: -10px;
+    margin-left: -5px;
+}
+
+/*table.dataTable {
+    padding: 0 2px;
+}*/
+
+/*selected 复选框选中 end*/
+/*查看 start*/
+.content-span {
+    max-width: 490px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.query-width {
+    min-width: 63px;
+    display: inline-block;
+}
+
+/*查看 end*/
+/*radio 按钮 start*/
+.my-input-group label {
+    position: relative;
+    top: 7px;
+    display: inline-block;
+    padding: 7px 0;
+    border-radius: 3px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.my-input-group .label-0 {
+    padding-right: 7px;
+    padding-left: 14px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: 7px;
+}
+
+.my-input-group .label-1 {
+    padding-right: 14px;
+    padding-left: 7px;
+    left: -8px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+/*radio 按钮 end*/
+/*圈radio start*/
+.my-article input[type="radio"], .my-article .isshowEle,
+.my-article .mycheckbox input[type="checkbox"] {
+    display: none;
+}
+
+.my-article input[type="radio"]:checked + .marticle + .isshowEle,
+.my-article input[type="radio"]:checked + .marticle + span + .isshowEle,
+.my-article .mycheckbox input[type="checkbox"]:checked + .marticle + span + .isshowEle {
+    display: inline-block;
+}
+
+/*添加奖励使用的*/
+.my-article .mycheckbox input[type="checkbox"]:checked + .marticle + span + .modal-show {
+    display: block;
+}
+
+.ver-middle {
+    vertical-align: middle;
+}
+
+/*圈radio end*/
+a.addset {
+    font-weight: bold;
+    text-decoration: none;
+    color: #4EA8D3;
+}
+
+a:hover.addset {
+    text-decoration: underline;
+    color: #4EA8D3;
+}
+
+a:focus.addset {
+    color: #4EA8D3;
+}
+
+.accemanpadding {
+    padding: 0 0 10px 92px;
+}
+
+.my-inline-group {
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.d-p {
+    position: relative;
+    top: 6px;
+}
+.pre-top {
+    top: 2px;
+}
+.p-r-25 {
+    padding-right: 25px;
+}
+.padding-2-12 {
+    padding: 1px 12px;
+}
+.pagination-sm > li > a {
+    font-size: 14px !important;
+    border-radius: 3px !important;
+}
+th.backimgnone {
+    background-image: none !important;
+}
+.all-btn {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid #A8ACB4;
+}
+
+.no-all-btn {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+table.dataTable{
+    -moz-box-sizing:border-box;/*火狐浏览器下把内边距放入边框不增加表格宽度*/
+}
+.panel-close {
+    position: absolute;
+    top: 3px;
+    right: 4px;
+    padding: 0 2px;
+}
+/*codeMirror start 提示显示在最高层*/
+.CodeMirror-hints {
+  z-index: 9999!important;
+}
+.CodeMirror {
+    height: 400px!important;
+}
+.CodeMirror pre{
+    padding:0 30px!important;
+}
+/*codeMirror end 提示显示在最高层*/
+/*。。。。。。步骤 start。。。。。。*/
+.step {
+    border-radius: 3px;
+    margin: 0;
+}
+.step [class^='col-md']{
+   padding: 0;
+}
+.step .step-item{
+    padding: 12px 20px;
+    background:url('../images/stepbar.png') no-repeat 100% 0 #dadceb;
+}
+.step .no-bg-img{
+    background-image:none;
+}
+.step .step-item span{
+    color: #5d5e97;
+}
+.step .step-item .badge{
+    vertical-align: text-bottom;
+    background-color:#b4b4f0;
+}
+.step .step-item.active-prev{
+    background-position: 100% -46px;
+}
+.step .step-item.active{
+    background-color: #b5b5f1;
+}
+.step .step-item.active span{
+    color: #fff;
+}
+.step .step-item.active .badge{
+    background-color:#fff;
+    color:#5d5e97;
+}
+.step-content {
+    padding: 20px;
+    background-color: #eaebfe;
+}
+.no-bg-color {
+    background-color: transparent!important;
+    color: #5A5C8B!important;
+}
+.btn-green{
+    background-color:#30b164;
+    border-color:#30b164;
+    color: #FFFFFF;
+}
+.btn-green-no{
+    background-color:transparent;
+    border-color:#30b164;
+    color:#30b164;
+}
+.btn-purple-no{
+    background-color:transparent;
+    border-color:#8181c1;
+    color:#8181c1;
+}
+.btn-purple-no:hover,.btn-purple-no-active{
+    background-color:#8181c1!important;
+    border-color:#8181c1!important;
+    color: #fff!important;
+}
+.btn-green:hover,.btn-green-no:hover,.btn-green:focus,.btn-green-no:focus{
+    background-color:#30b164!important;
+    border-color:#30b164!important;
+    color: #fff!important;
+}
+/*。。。。。。步骤 end。。。。。。*/

@@ -1,0 +1,19 @@
+<div class="tab-pane-bom">
+    <div class="tab-content" ng-transclude></div>
+    <a href="" class="f-l tab-icon" data-toggle="tooltip" data-placement="top" data-trigger="hover"
+         ng-repeat="paneb in panesBom" ng-class="{'icon-active':paneb.selected}" title="{{paneb.titleName}}"
+       ng-if="$index < 2" ng-click="selectBottom(paneb)">
+        <span class="{{paneb.icon}}"></span>
+    </a>
+    <a href="" class="f-l tab-icon" data-toggle="tooltip" data-placement="top" data-trigger="hover"
+       ng-repeat="paneb in panesBom" ng-class="{'icon-active':paneb.selected}" title="{{paneb.titleName}}"
+       ng-if="$index == 2">
+        <span class="{{paneb.icon}}"></span>
+    </a>
+    <a href="" class="f-l tab-icon" data-toggle="tooltip" data-placement="top" data-trigger="hover"
+       ng-repeat="paneb in panesBom" ng-class="{'icon-active':paneb.selected}" title="{{paneb.titleName}}"
+       ng-if="$index == 3" ngsf-toggle-fullscreen>
+        <span class="{{paneb.icon}}"></span>
+    </a>
+    <div class="clear"></div>
+</div>

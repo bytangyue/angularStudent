@@ -1,0 +1,50 @@
+<div class="margin-top-15" ng-controller="sensitiveCtrl">
+    <!--服务器 start-->
+    <link rel="import" href="../../partial/server/server.html?__inline"/>
+    <!--服务器 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>敏感词汇</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checksensitiveTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checksensitiveTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-right f-r">
+                    <btn-popup btnquery="addsensitivef()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>敏感词：
+                                    <input type="text" class="form-control border back-white width-600" placeholder="请输入敏感词">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" class="btn purple-btn margin-right10">
+                        <i class="fa fa-external-link"></i> 提交
+                    </button>
+                    <button type="button" ng-click="deleteSelected()" class="btn btn-yellow margin-right-20">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="sensitivetableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped armyhover dataTable table-bordered padding-15"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()"></modal-dialog>
+</div>

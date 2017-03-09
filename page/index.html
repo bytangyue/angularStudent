@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <title>简乐互动 | GM系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="/lib/mod.js"></script>
+    <link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/datatables/media/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="/bower_components/angular-datatables/dist/plugins/bootstrap/datatables.bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="/bower_components/datatables-fixedcolumns/css/fixedColumns.bootstrap.scss"/>
+    <link rel="stylesheet"
+          href="/bower_components/bootstrap-datetimepicker/bootstrap/css/bootstrap-datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="/bower_components/select2/select2.css">
+    <link rel="stylesheet" type="text/css" href="/bower_components/SpinKit/css/spinkit.css"/>
+    <link rel="stylesheet" type="text/css" href="/bower_components/nprogress/nprogress.css"/>
+    <link rel="stylesheet" type="text/css" href="css/dataTables.responsive.css">
+    <link rel="stylesheet" type="text/css" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="css/themePurple.css">
+    <link rel="stylesheet" type="text/css" href="css/style-date.css">
+    <link rel="stylesheet" type="text/css" href="css/style-filstarte.css">
+    <link rel="stylesheet" type="text/css" href="css/ng-cloak-css.css"/>
+    <!--  CodeMirror css -->
+    <link rel="stylesheet" href="/bower_components/codemirror/lib/codemirror.css">
+    <link rel="stylesheet" href="/bower_components/codemirror/addon/hint/show-hint.css">
+    <link rel="stylesheet" href="/bower_components/codemirror/theme/monokai.css">
+    <link rel="stylesheet" href="/bower_components/codemirror/addon/scroll/simplescrollbars.css">
+</head>
+<body ngsf-fullscreen loading class="refreshing-color">
+<!--loading-->
+<div class="spinner" id="load-gif">
+    <div class="bounce1 boun"></div>
+    <div class="bounce2 boun"></div>
+    <div class="bounce3 boun"></div>
+</div>
+<!--End loading-->
+
+<div class="container-fluid" ng-cloak ui-view="loginMain">
+    <div class="row">
+        <!-- head -->
+        <link rel="import" href="../modules/partial/head/head.html?__inline"/>
+        <!-- End head -->
+    </div>
+    <div class="row" ng-controller="CtrlNavData">
+        <div class="main-sidebar" ng-class="{true:'sidebar-close',false:''}[toggle]">
+            <!-- sidebar -->
+            <link rel="import" href="../modules/partial/sidebar/sidebar.html?__inline"/>
+            <!-- End sidebar -->
+        </div>
+
+        <div class="main-content">
+            <img class="shuyin" src="images/shuyin.png" alt=""/>
+
+            <div class="dashboard dashboardRight">
+                <span class="glyphicon glyphicon-map-marker"></span>
+                <span ng-bind="'GM系统 > '+breadCNavigation"></span>
+            </div>
+            <div class="view-content" ui-view="content" id="content">
+                <!--<link rel="import" href="../modules/pages/dashbord/dashbord.html?__inline"/>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <!-- footer -->
+        <link rel="import" href="../modules/partial/footer/footer.html?__inline"/>
+        <!-- End footer -->
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../bower_components/datatables/media/js/jquery.js"></script>
+<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script type="text/javascript" src="../bower_components/datatables/media/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="../bower_components/datatables-buttons/js/dataTables.buttons.js"></script>
+<script type="text/javascript" src="../bower_components/datatables-fixedcolumns/js/dataTables.fixedColumns.js"></script>
+<script type="text/javascript" src="../bower_components/datatables-select/js/dataTables.select.js"></script>
+<script type="text/javascript" src="../bower_components/datatables-responsive/js/dataTables.responsive.js"></script>
+<script type="text/javascript" src="../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../bower_components/angular-resource/angular-resource.js"></script>
+<!-- angular datatables-->
+<script type="text/javascript" src="../bower_components/angular-datatables/dist/angular-datatables.js"></script>
+<script type="text/javascript"
+        src="../bower_components/angular-datatables/dist/plugins/bootstrap/angular-datatables.bootstrap.js"></script>
+<script type="text/javascript"
+        src="../bower_components/angular-datatables/dist/plugins/fixedcolumns/angular-datatables.fixedcolumns.js"></script>
+<script type="text/javascript"
+        src="../bower_components/angular-datatables/dist/plugins/select/angular-datatables.select.min.js"></script>
+<script type="text/javascript"
+        src="../bower_components/angular-datatables/dist/plugins/buttons/angular-datatables.buttons.js"></script>
+<script type="text/javascript" src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script type="text/javascript" src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script type="text/javascript" src="../bower_components/angular-cookies/angular-cookies.js"></script>
+<!-- datetimepicker-->
+<script type="text/javascript"
+        src="/bower_components/bootstrap-datetimepicker/bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript"
+        src="/bower_components/bootstrap-datetimepicker/bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- datetimepicker-->
+<script type="text/javascript" src="/bower_components/moment/min/moment-with-locales.min.js"></script>
+<!-- angular select2-->
+<script type="text/javascript" src="/bower_components/select2/select2.js"></script>
+<script type="text/javascript" src="/bower_components/angular-ui-select2/src/select2.js"></script>
+<!-- angular select2-->
+<script type="text/javascript" src="/bower_components/nprogress/nprogress.js"></script>
+<script type="text/javascript">
+    require('main');
+</script>
+<!--  CodeMirror js -->
+<script src="/bower_components/codemirror/lib/codemirror.js"></script>
+<script src="/bower_components/codemirror/addon/hint/show-hint.js"></script>
+<script src="/bower_components/codemirror/addon/hint/xml-hint.js"></script>
+<script src="/bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="/bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="/bower_components/codemirror/addon/scroll/simplescrollbars.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+</html>

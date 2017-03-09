@@ -1,0 +1,61 @@
+<div ng-init="isShow = false" class="dropdown {{datebtnclass}}"  ng-class="{true:'open',false:''}[isShow]">
+    <div class="date-plugin" ng-click="showOrHide()">
+        <a class="f-l">
+            <span class="fa fa-calendar"></span>
+            <span class="data-text min-width-77 {{datename.dateclass}}" ng-if=" singleDate!= 'false' "  ng-style="myStyle">{{sDate}}</span>
+             <span class="data-text min-width-215 {{datename.dateclass}}" ng-if=" singleDate== 'false' " ng-style="myStyle">
+                     {{sDate}} ~ {{eDate}}</span>
+        </a>
+        <a class="f-l">
+            <span class="caret"></span>
+        </a>
+    </div>
+    <div class="clear"></div>
+    <div class="dropdown-menu date-content">
+        <div class="data-head">
+            <label ng-show=" singleDate == 'true' ">输入或选择{{inputhead}}</label>
+
+            <div ng-show=" singleDate == 'false' ">
+                     <span class="date-first-span">
+                         <a href="#" ng-click="setDefaultDate(0);resetErrorState()">今日</a></span>
+                <span><a href="#" ng-click="setDefaultDate(6);resetErrorState()">近7日</a></span>
+                <span><a href="#" ng-click="setDefaultDate(29);resetErrorState()">近30日</a></span>
+                <span><a href="#" ng-click="setDefaultDate(59);resetErrorState()">近60日</a></span>
+            </div>
+            <div class="arrow-up" ng-if="singleDate == 'true'"
+                 ng-style="{left: '115px','border-bottom-color':'#a2a2e3',top:'-43px'}"></div>
+            <div class="arrow-up" ng-if="singleDate == 'false'"
+                 ng-style="{left: '253px','border-bottom-color':'#a2a2e3',top:'-38px'}"></div>
+        </div>
+        <div class="data-content">
+            <div class="form-inline" ng-show=" singleDate == 'false' ">
+                <div class="form-group form-group-xsm input-append date startDT">
+                    自
+                    <input maxlength="10" type="text" ng-change="sdaterror=false" ng-class=" sdaterror ? 'input-error-class':''" id="startinp" ng-keyup="validateDate()" class="input-border-radius" ng-model="sDate" placeholder="开始时间">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <div class="form-group form-group-xsm input-append date endDT">
+                    到
+                    <input maxlength="10" type="text" ng-change="edaterror=false"
+                           ng-class="edaterror?'input-error-class':''" ng-keyup="validateDate()"
+                           class="input-border-radius m-r-1" ng-model="eDate" placeholder="结束时间">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <div class="err-color text-center">{{errorTip}}&nbsp;</div>
+            </div>
+            <div class="form-inline" ng-show="singleDate == 'true'">
+                <div class="form-group input-append date startDT">
+                    <input maxlength="{{inputMaxlength}}" type="text" ng-change="sdaterror=false" ng-class="sdaterror?'input-error-class':''" ng-keyup="validateDate()"
+                           class="input-border-radius single-input"
+                            ng-model="sDate" placeholder="选择时间">
+                            <span class="add-on"><i class="icon-th"></i></span>
+                </div>
+                <div>&nbsp;</div>
+            </div>
+        </div>
+        <div class="data-footer f-r">
+            <button type="button" class="btn btn-small btn-gray" ng-click="isShowContent(false)">取消</button>
+            <button type="button" class="btn btn-small btn-sm-color" ng-click="isShowContent(true)">确定</button>
+        </div>
+    </div>
+</div>

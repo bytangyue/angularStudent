@@ -1,0 +1,153 @@
+<div class="margin-top-15" ng-controller="bannedCtrl">
+    <!--服务器 start-->
+    <div ng-if="ishideServer">
+    <link rel="import"  href="../../partial/server/server.html?__inline"/>
+    </div>
+    <!--服务器 end-->
+    <div class="purple-tabs left-right margin-top-20">
+        <my-tabs tabdivresize="resettable()">
+            <my-pane title-name="踢玩家下线" titleid="setReferrals">
+                <div class="clear"></div>
+                <form class="form-inline margin-top-20" novalidate>
+                    <div class="form-group">
+                        <label class="red-star"></label>角色名：
+                        <input type="text" class="form-control border" placeholder="请输入角色名称">
+                    </div>
+                    <button type="button" class="btn purple-btn margin-left-19" ng-disabled="vipForm.$invalid" ng-click="queryVipDis(vip)">
+                        <i class="fa" ng-class=" isGoQuery ? 'transform-css fa-spinner':'fa-hand-o-up'"></i> 执行
+                    </button>
+                </form>
+                <br/>
+            </my-pane>
+            <my-pane title-name="单服禁言" titleid="singleNoTalk" >
+                <div class="clear"></div>
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn margin-top-20"
+                        ng-click="checksingleseTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20 margin-top-20"
+                        ng-click="checksingleseTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left margin-top-20 f-l">
+                    <btn-popup btnquery="querysingleserver()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称（此项为非必填项）">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right margin-top-20 f-r">
+                    <btn-popup btnquery="singleserveradd()"
+                               popparms="addpop">
+                        <popup-pane>
+                            <form class="form-inline form-div p-l-form" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star">*</label>角色名称：
+                                    <input type="text" class="form-control border back-white width-600" placeholder="请输入角色名称">
+                                </div>
+                                <br/>
+                                <div class="form-group">
+                                    <label class="red-star">&nbsp;</label>禁言时间：
+                                    <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                            ng-model="notice.noticeType0" data-placeholder="永久">
+                                        <option value=""></option>
+                                        <option value="_easyui_combobox_i1_1" selected>永久</option>
+                                        <option value="_easyui_combobox_i1_2">8小时</option>
+                                        <option value="_easyui_combobox_i1_3">24小时</option>
+                                        <option value="_easyui_combobox_i1_4">3天</option>
+                                        <option value="_easyui_combobox_i1_5">7天</option>
+                                        <option value="_easyui_combobox_i1_6">15天</option>
+                                    </select>
+                                </div>
+                                <span class="red-notice">(禁言结束时间)</span>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                    <button type="button" ng-click="singleServerSelected()" class="btn btn-yellow margin-right-20">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="singleServerTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 800px;"
+                           class="table-striped dataTable armyhover table-bordered padding-15"></table>
+                </div>
+            </my-pane>
+            <my-pane title-name="全服禁言" titleid="allNoTalk">
+                <div class="clear"></div>
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn margin-top-20"
+                        ng-click="checkallseTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20 margin-top-20"
+                        ng-click="checkallseTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left margin-top-20 f-l">
+                    <btn-popup btnquery="queryallserver()"
+                               popparms="querypoptwo">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称（此项为非必填项）">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+              <div class="chunk-btn-right margin-top-20 f-r">
+                <btn-popup btnquery="singleserveradd()"
+                           popparms="addpop">
+                    <popup-pane>
+                        <form class="form-inline form-div p-l-form" novalidate>
+                            <div class="form-group width-pencent-100">
+                                <label class="red-star">*</label>角色名称：
+                                <input type="text" class="form-control border back-white width-600" placeholder="请输入角色名称">
+                            </div>
+                            <br/>
+                            <div class="form-group">
+                                <label class="red-star">&nbsp;</label>禁言时间：
+                                <select ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                                        ng-model="notice.noticeType0" data-placeholder="永久">
+                                    <option value=""></option>
+                                    <option value="_easyui_combobox_i1_1" selected>永久</option>
+                                    <option value="_easyui_combobox_i1_2">8小时</option>
+                                    <option value="_easyui_combobox_i1_3">24小时</option>
+                                    <option value="_easyui_combobox_i1_4">3天</option>
+                                    <option value="_easyui_combobox_i1_5">7天</option>
+                                    <option value="_easyui_combobox_i1_6">15天</option>
+                                </select>
+                            </div>
+                            <span class="red-notice">(禁言结束时间)</span>
+                        </form>
+                    </popup-pane>
+                </btn-popup>
+                <button type="button" ng-click="banTalk()" class="btn purple-btn margin-right10">
+                    <i class="fa fa-microphone-slash"></i> 全服禁言
+                </button>
+                <button type="button" ng-click="noBanTalk()" class="btn purple-btn  margin-right10">
+                    <i class="fa fa-microphone"></i> 全服解禁
+                </button>
+                <button type="button" ng-click="allServerSelected()" class="btn btn-yellow margin-right-20">
+                    <i class="fa fa-trash-o"></i> 批量删除
+                </button>
+            </div>
+                <div class="margin-top-50" ng-controller="allServerTableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance" style="min-width: 800px;"
+                           class="table-striped  armyhover dataTable table-bordered padding-15"></table>
+                </div>
+
+            </my-pane>
+        </my-tabs>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()"></modal-dialog>
+</div>

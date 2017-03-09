@@ -1,0 +1,67 @@
+<div class="margin-top-15" ng-controller="barrageCtrl">
+    <!--服务器 start-->
+    <link rel="import" href="../../partial/server/server.html?__inline"/>
+    <!--服务器 end-->
+    <div class="title-tip-layout panel-color left-right margin-top-20">
+        <div class="chunk-head">
+            <label>弹幕列表</label>
+        </div>
+        <div class="chunk-bottom">
+            <div class="chunk-btn">
+                <button type="button" class="btn purple-btn btn-padding f-l all-btn"
+                        ng-click="checkmonTableAll(true)">
+                    全选
+                </button>
+                <button type="button" class="btn purple-btn btn-padding f-l no-all-btn margin-right-20"
+                        ng-click="checkmonTableAll(false)">
+                    取消
+                </button>
+                <div class="chunk-btn-left f-l">
+                    <btn-popup btnquery="querysingleserver()"
+                               popparms="querypop">
+                        <popup-pane>
+                            <form class="form-inline form-div" novalidate>
+                                <div class="form-group width-pencent-100">
+                                    <label class="red-star margin-left-19"></label>角色名称：
+                                    <input type="text" class="form-control border back-white width-508" placeholder="请输入角色名称（此项为非必填项）">
+                                </div>
+                            </form>
+                        </popup-pane>
+                    </btn-popup>
+                </div>
+                <div class="chunk-btn-right f-r">
+                    <button type="button" ng-click="deleteSelected()" class="btn btn-yellow margin-right-20 ">
+                        <i class="fa fa-trash-o"></i> 批量删除
+                    </button>
+                </div>
+                <div class="margin-top-50" ng-controller="barragetableCtrl as showCase">
+                    <table datatable dt-options="showCase.dtOptions" dt-columns="showCase.dtColumns"
+                           dt-instance="showCase.dtInstance"
+                           class="table-striped dataTable armyhover table-bordered padding-15 min-width-1244"></table>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal -->
+    <modal-dialog modalparams="modalparams" modalconfirm="modalConfirm()">
+        <modal-pane>
+            <form class="form-inline form-div" novalidate>
+                <div class="form-group width-pencent-100">
+                    <label class="red-star">*</label>禁言时间：
+                    <select ng-init="barra.notalk='i1_0'" ui-select2="{ allowClear: true}" class="choose-chanel white-select2"
+                            ng-model="barra.notalk" ng-required="true">
+                        <option value="i1_0">永久</option>
+                        <option value="i1_1">8小时</option>
+                        <option value="i1_2">24小时</option>
+                        <option value="i1_3">3天</option>
+                        <option value="i1_4">7天</option>
+                        <option value="i1_5">15天</option>
+                    </select>
+                </div>
+                <br/>
+            </form>
+      </modal-pane>
+    </modal-dialog>
+</div>
